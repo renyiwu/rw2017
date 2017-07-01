@@ -1,0 +1,35 @@
+Ingenuity Canonical Pathways, -log(p-value),Molecules,,, -log(p-value),Molecules,gene,DSS-CON,DSSCUR-DSS,p1,p2
+Aryl Hydrocarbon Receptor Signaling,2.45,"TGM2,NCOA7,ALDH1A3,CCND1,GSTP1,GSTK1",,Aryl Hydrocarbon Receptor Signaling,1.24,"NCOA7,ALDH1A1",Bmp8b,2.571,-3.321,#N/A,#N/A
+CDP-diacylglycerol Biosynthesis I,2.65,"GPAM,LPCAT4,GPAT3",,CDP-diacylglycerol Biosynthesis I,1.17,LPCAT4,2010109I03Rik,2.092,-2.849,IL-4 Signaling,IL-4 Signaling
+LXR/RXR Activation,7.45,"TTR,C3,APOB,TF,ABCG1,APOC2,LBP,TNFRSF1B,NOS2,ABCA1,CLU",,LXR/RXR Activation,1.38,"NOS2,ABCA1",KRT36,2.838,-2.481,CDP-diacylglycerol Biosynthesis I,CDP-diacylglycerol Biosynthesis I
+Phosphatidylglycerol Biosynthesis II (Non-plastidic),2.55,"GPAM,LPCAT4,GPAT3",,Phosphatidylglycerol Biosynthesis II (Non-plastidic),1.13,LPCAT4,CLCA4,5.331,-2.318,#N/A,#N/A
+Retinoate Biosynthesis I,3.4,"DHRS9,ALDH1A3,RDH16,AKR1B10",,Retinoate Biosynthesis I,3.95,"ALDH1A1,DHRS9,RDH16",AREG,1.911,-2.073,IL-4 Signaling,IL-4 Signaling
+Superpathway of Citrulline Metabolism,2,"NOS2,CPS1",,Superpathway of Citrulline Metabolism,1.39,NOS2,LPCAT4,2.971,-1.99,CDP-diacylglycerol Biosynthesis I,CDP-diacylglycerol Biosynthesis I
+Triacylglycerol Biosynthesis,2.9,"GPAM,LPCAT4,DGAT2,GPAT3",,Triacylglycerol Biosynthesis,2.15,"LPCAT4,DGAT2",EMP1,1.917,-1.961,#N/A,#N/A
+Putrescine Degradation III,1.66,"ALDH1A3,SAT1",,Putrescine Degradation III,1.22,ALDH1A1,ACTA1,2.689,-1.946,IL-4 Signaling,IL-4 Signaling
+Type I Diabetes Mellitus Signaling,1.6,"SOCS3,HLA-DQA1,TNFRSF1B,NOS2",,Type I Diabetes Mellitus Signaling,3.66,"HLA-DQA1,HLA-DQB1,NOS2,HLA-DRB5",NOS2,4.4,-1.78,IL-4 Signaling,IL-4 Signaling
+T Helper Cell Differentiation,1.43,"IL4R,HLA-DQA1,TNFRSF1B",,T Helper Cell Differentiation,3,"HLA-DQA1,HLA-DQB1,HLA-DRB5",PMEPA1,1.329,-1.57,IL-4 Signaling,IL-4 Signaling
+Sertoli Cell-Sertoli Cell Junction Signaling,1.38,"PRKAR2B,CLDN4,TUBA1C,NOS2,ACTA1",,Sertoli Cell-Sertoli Cell Junction Signaling,1.85,"CLDN4,NOS2,ACTA1",LPO,3.429,-1.564,CDP-diacylglycerol Biosynthesis I,CDP-diacylglycerol Biosynthesis I
+Ethanol Degradation II,1.34,"DHRS9,ALDH1A3",,Ethanol Degradation II,2.43,"ALDH1A1,DHRS9",DHRS9,2.449,-1.546,IL-4 Signaling,IL-4 Signaling
+Noradrenaline and Adrenaline Degradation,1.27,"DHRS9,ALDH1A3",,Noradrenaline and Adrenaline Degradation,2.35,"ALDH1A1,DHRS9",PAQR8,1.991,-1.463,IL-4 Signaling,IL-4 Signaling
+Citrulline-Nitric Oxide Cycle,1.27,NOS2,,Citrulline-Nitric Oxide Cycle,1.84,NOS2,NCOA7,2.61,-1.428,Ethanol Degradation IV,Ethanol Degradation IV
+Tight Junction Signaling,0.993,"PRKAR2B,CLDN4,TNFRSF1B,ACTA1",,Tight Junction Signaling,1.09,"CLDN4,ACTA1",IER3,2.626,-1.412,IL-4 Signaling,IL-4 Signaling
+Nur77 Signaling in T Lymphocytes,0.967,"HDAC1,HLA-DQA1",,Nur77 Signaling in T Lymphocytes,3.35,"HLA-DQA1,HLA-DQB1,HLA-DRB5",PLAUR,3.177,-1.404,#N/A,#N/A
+MSP-RON Signaling Pathway,0.887,"NOS2,ACTA1",,MSP-RON Signaling Pathway,1.91,"NOS2,ACTA1",ADRA2A,1.385,-1.373,CDP-diacylglycerol Biosynthesis I,CDP-diacylglycerol Biosynthesis I
+Calcium-induced T Lymphocyte Apoptosis,0.875,"HDAC1,HLA-DQA1",,Calcium-induced T Lymphocyte Apoptosis,3.18,"HLA-DQA1,HLA-DQB1,HLA-DRB5",CLDN4,1.737,-1.325,#N/A,#N/A
+Serotonin Degradation,0.875,"DHRS9,ALDH1A3",,Serotonin Degradation,1.9,"ALDH1A1,DHRS9",APLP1,1.452,-1.23,IL-4 Signaling,IL-4 Signaling
+RAR Activation,0.828,"PRKAR2B,DHRS9,ALDH1A3,RDH16",,RAR Activation,1.76,"ALDH1A1,DHRS9,RDH16",KRT23,1.534,-1.15,IL-4 Signaling,IL-4 Signaling
+Xenobiotic Metabolism Signaling,0.79,"HMOX1,ALDH1A3,NOS2,GSTP1,GSTK1",,Xenobiotic Metabolism Signaling,1.38,"Ces1g,ALDH1A1,NOS2",PGAP1,1.322,-1.08,IL-4 Signaling,IL-4 Signaling
+Histamine Degradation,0.766,ALDH1A3,,Histamine Degradation,1.31,ALDH1A1,SHISA2,-1.013,1.033,Aryl Hydrocarbon Receptor Signaling,Aryl Hydrocarbon Receptor Signaling
+Crosstalk between Dendritic Cells and Natural Killer Cells,0.756,"TNFRSF1B,ACTA1",,Crosstalk between Dendritic Cells and Natural Killer Cells,1.76,"ACTA1,HLA-DRB5",CBR3,1.314,1.039,Ethanol Degradation IV,Ethanol Degradation IV
+Glioma Invasiveness Signaling,0.756,"TIMP3,PLAUR",,Glioma Invasiveness Signaling,1.76,"PLAUR,RHOF",HLA-DQA1,-1.16,1.096,IL-4 Signaling,IL-4 Signaling
+Phagosome Maturation,0.738,"LPO,TUBA1C,ACE",,Phagosome Maturation,1.23,"LPO,HLA-DRB5",NAALADL1,-1.921,1.414,#N/A,#N/A
+Th2 Pathway,0.732,"SOCS3,IL4R,HLA-DQA1",,Th2 Pathway,2.14,"HLA-DQA1,HLA-DQB1,HLA-DRB5",ABCA1,-1.836,1.628,#N/A,#N/A
+The Visual Cycle,0.723,DHRS9,,The Visual Cycle,1.26,DHRS9,,,,,
+Oxidative Ethanol Degradation III,0.723,ALDH1A3,,Oxidative Ethanol Degradation III,1.26,ALDH1A1,,,,,
+Fatty Acid ?-oxidation,0.703,ALDH1A3,,Fatty Acid ?-oxidation,1.24,ALDH1A1,,,,,
+"Tryptophan Degradation X (Mammalian, via Tryptamine)",0.649,ALDH1A3,,"Tryptophan Degradation X (Mammalian, via Tryptamine)",1.18,ALDH1A1,,,,,
+Ethanol Degradation IV,0.649,ALDH1A3,,Ethanol Degradation IV,1.18,ALDH1A1,,,,,
+IL-4 Signaling,0.636,"IL4R,HLA-DQA1",,IL-4 Signaling,2.73,"HLA-DQA1,HLA-DQB1,HLA-DRB5",,,,,
+Tryptophan Degradation III (Eukaryotic),0.633,CA1,,Tryptophan Degradation III (Eukaryotic),1.17,IDO1,,,,,
+HER-2 Signaling in Breast Cancer,0.613,"CCND1,AREG",,HER-2 Signaling in Breast Cancer,1.58,"PARD6B,AREG",,,,,

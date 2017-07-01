@@ -8,7 +8,7 @@ dt
 ## remove rows with NAs
 dt2 <- na.omit(dt)
 ## Alternative ways:
-# dt1 <- dt[complete.cases(dt),] #Take into account all columns
+# dt1 <- dt[complete.cases(dt),] #Remove Nas in all columns.
 # dt1 <- dt[complete.cases(dt[,1:2]),] #Only remove rows with NAs in fisrt 2 columns.
 dt <- na.omit(dt)
 ## transpose data table, rows <-> columns
@@ -19,7 +19,7 @@ ds <- dist(dtt)
 h <- hclust(ds)
 dev.off()
 plot(h, xlab = "sample", asp = 2)
-# Parameters for plot
+# Parameters for plotting
 plot(h, hang = -1, xlab = "sample", ylab = "distance", cex = 1, lwd = 1, col = "black")
 rect.hclust(h, 2)
 
@@ -40,7 +40,7 @@ hcd <- as.dendrogram(hc)
 hcd
 # Customized plot; remove labels
 plot(hcd, ylim = c(0,15), xlab = NA, ylab = NA, nodePar = nodePar,edgePar = edgePar, horiz = TRUE, asp = 1.5)
-
+##Reference below##
 # plot(table(rpois(100, 5)), type = "h", col = "red", lwd = 10,
 #      main = "rpois(100, lambda = 5)")
 # plot(table(rpois(100, 5)))

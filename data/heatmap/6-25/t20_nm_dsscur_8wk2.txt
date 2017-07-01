@@ -1,0 +1,21 @@
+Pathways	 -log(p-value)1	z-score1	 -log(p-value)2	z-score2
+p53 Signaling	6.45	0.728	4.78	0.905
+Dendritic Cell Maturation	4.37	-1.225	3.83	0.853
+LXR/RXR Activation	4.16	-1.291	3.75	1.897
+LPS/IL-1 Mediated Inhibition of RXR Function	3.64	1.265	4.42	-1.941
+AMPK Signaling	3.58	-2.524	2.68	-0.5
+Th1 Pathway	3.52	-3.9	2.34	1.807
+Estrogen-Dependent Breast Cancer Signaling	3.34	-1.732	2.19	-1.667
+Glioma Invasiveness Signaling	3.18	-0.577	5.6	-3.357
+Fc RIIB Signaling in B Lymphocytes	3.08	-2.53	2.82	-1
+Huntington's Disease Signaling	3.07	-2.138	3.08	-0.277
+Glioblastoma Multiforme Signaling	3.03	-2.183	6.13	-2.294
+IL-9 Signaling	3.01	-2.333	4.07	0
+IL-6 Signaling	2.96	-0.5	2.19	-2.673
+Th2 Pathway	2.94	-2.324	3.08	0
+PI3K Signaling in B Lymphocytes	2.92	1.069	2.16	-0.535
+Endothelin-1 Signaling	2.88	-0.853	2.38	-1.147
+Pancreatic Adenocarcinoma Signaling	2.88	-1.604	3.88	-0.535
+Non-Small Cell Lung Cancer Signaling	2.81	-2.111	2.68	-1.265
+Type I Diabetes Mellitus Signaling	2.76	2.333	5.42	-1.508
+ILK Signaling	2.62	0	3.63	-3.411

@@ -36,3 +36,11 @@ heatmap.2(mat,col=redgreen(255),dendrogram = "none",Colv = FALSE,Rowv = FALSE,
 # # #heatmap.2(mat, dendrogram = "row", scale = "none", margins = c(1,10), trace = "none", col = redgreen(255), density.info = "none", key = TRUE, keysize = 2, key.title = FALSE, key.xlab = expression(log[2]~(fold~change)), cexCol=1, srtCol=60)
 # heatmap.2(mat, dendrogram = "row", scale = "none", margins = c(1,10), trace = "none", col = redgreen(255), density.info = "none", key = TRUE, keysize = 2, key.title = FALSE, key.xlab = expression(log[2]~expression), cexCol=1, srtCol=NULL)
 heatmap.2(mat, lmat= lmat,  lwid = c(1,4), lhei = c(4,4,4), cexRow = 1, cexCol = 1)
+#
+#
+#
+# When export output as image file, choose the correct size. Add 64 pixels to 
+# your desire width and length of you file. i.e., if you want a final size
+# of 100x200 pixels picture, set output size to 164x264, then crop the image 
+# with ImageJ or similar tools.
+#

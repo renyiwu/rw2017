@@ -13,7 +13,7 @@ df<-read.table(file="heatmap/pathways 18 weeks AOMDSS.txt",sep = "\t", header = 
 mat <- as.matrix(df[c(2:3)])
 ### Use the gene symbols as rowname
 rownames(mat) <- df$pathway
-#heatmap.2(mat,col=redgreen(255),dendrogram = "row",Colv = FALSE,hclustfun = hclust)
+heatmap.2(mat,col=redgreen(255),dendrogram = "row",Colv = FALSE,hclustfun = hclust)
 
 #without key and labels
 heatmap.2(mat,col=redgreen(255),dendrogram = "none",Colv = FALSE,Rowv = FALSE, 
