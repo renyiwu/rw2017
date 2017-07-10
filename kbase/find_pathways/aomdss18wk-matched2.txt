@@ -1,0 +1,73 @@
+Finding pathways for file: aomdss18wk.txt
+Based on individual pathway collection
+Found Pla2g4c in the following pathway(s):
+None
+Found Pde4b in the following pathway(s):
+None
+Found Fosb in the following pathway(s):
+None
+Found Cd177 in the following pathway(s):
+None
+Found Egr1 in the following pathway(s):
+None
+Found Nr4a1 in the following pathway(s):
+Calcium-induced T Lymphocyte Apoptosis	"
+Found E2f2 in the following pathway(s):
+None
+Found Ceacam10 in the following pathway(s):
+None
+Found Pmepa1 in the following pathway(s):
+None
+Found Fos in the following pathway(s):
+NRF2-mediated Oxidative Stress Response	
+Cdc42 Signaling	"HLA-DOA,MAP3K11,HLA-A,I
+PI3K Signaling in B Lymphocytes	"KRAS,PL
+PKC? Signaling in T Lymphocytes	"RAC2,HL
+Role of NFAT in Regulation of the Immune
+ERK/MAPK Signaling	"RAC2,PTK2B,DUSP6,SOS
+Estrogen-Dependent Breast Cancer Signali
+Production of Nitric Oxide and Reactive 
+IGF-1 Signaling	"SOCS1,PIK3C2B,SOCS3,YWH
+IL-6 Signaling	"SOCS1,PIK3C2B,ABCB1,SOCS
+Found Ifi47 in the following pathway(s):
+None
+Found Hbegf in the following pathway(s):
+None
+Found Ltf in the following pathway(s):
+None
+Found Arid3a in the following pathway(s):
+None
+Found Dlk1 in the following pathway(s):
+None
+Found Per3 in the following pathway(s):
+None
+Found Slc37a2 in the following pathway(s):
+None
+Found Tef in the following pathway(s):
+None
+Found Slc26a3 in the following pathway(s):
+None
+Found Ctsf in the following pathway(s):
+None
+Found Slc20a1 in the following pathway(s):
+None
+Found Pla2g7 in the following pathway(s):
+None
+Found 0610005C13Rik in the following pathway(s):
+None
+Found Plscr2 in the following pathway(s):
+None
+Found Me3 in the following pathway(s):
+None
+Found Cadm1 in the following pathway(s):
+None
+Found Hepacam in the following pathway(s):
+None
+Found Naaladl1 in the following pathway(s):
+None
+Found Slc2a5 in the following pathway(s):
+None
+Found Cyp2d12 in the following pathway(s):
+None
+Found S100g in the following pathway(s):
+None

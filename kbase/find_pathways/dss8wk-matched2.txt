@@ -1,0 +1,61 @@
+Finding pathways for file: dss8wk.txt
+Based on individual pathway collection
+Found Bmp8b in the following pathway(s):
+None
+Found 2010109I03Rik in the following pathway(s):
+None
+Found KRT36 in the following pathway(s):
+None
+Found CLCA4 in the following pathway(s):
+None
+Found AREG in the following pathway(s):
+None
+Found LPCAT4 in the following pathway(s):
+None
+Found EMP1 in the following pathway(s):
+None
+Found ACTA1 in the following pathway(s):
+ILK Signaling	"PIK3C2B,CFL1,PIK3R1,CREBB
+Found NOS2 in the following pathway(s):
+LXR/RXR Activation	"TTR,MLXIPL,APOB,C3,A
+Endothelin-1 Signaling	"PLA2G16,PIK3C2B,
+Type I Diabetes Mellitus Signaling	"SOCS
+ILK Signaling	"PIK3C2B,CFL1,PIK3R1,CREBB
+Found PMEPA1 in the following pathway(s):
+None
+Found LPO in the following pathway(s):
+None
+Found DHRS9 in the following pathway(s):
+None
+Found PAQR8 in the following pathway(s):
+None
+Found NCOA7 in the following pathway(s):
+None
+Found IER3 in the following pathway(s):
+None
+Found PLAUR in the following pathway(s):
+Glioma Invasiveness Signaling	"FGFR3,PIK
+Found ADRA2A in the following pathway(s):
+AMPK Signaling	"PIK3C2B,ACACB,PIK3R1,CRE
+Found CLDN4 in the following pathway(s):
+None
+Found APLP1 in the following pathway(s):
+None
+Found KRT23 in the following pathway(s):
+None
+Found PGAP1 in the following pathway(s):
+None
+Found SHISA2 in the following pathway(s):
+None
+Found CBR3 in the following pathway(s):
+None
+Found HLA-DQA1 in the following pathway(s):
+Dendritic Cell Maturation	"PIK3R1,HLA-DQ
+Th1 Pathway	"SOCS3,PIK3C2B,DLL1,PIK3R1,I
+Th2 Pathway	"CCR1,SOCS3,PIK3C2B,IL4R,DLL
+Type I Diabetes Mellitus Signaling	"SOCS
+Found NAALADL1 in the following pathway(s):
+None
+Found ABCA1 in the following pathway(s):
+LXR/RXR Activation	"TTR,MLXIPL,APOB,C3,A
+LPS/IL-1 Mediated Inhibition of RXR Func
