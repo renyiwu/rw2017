@@ -1,0 +1,29 @@
+\n\n
+Wed Jun 21 19:43:55 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+logfile.txt
+Wed Jun 21 19:43:55 EDT 2017
+sh: 0: Can't open s2.sh
+\\n\n
+Wed Jun 21 19:45:30 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+logfile.txt
+Wed Jun 21 19:45:30 EDT 2017
+sh: 0: Can't open s2.sh
+nn
+Wed Jun 21 19:45:49 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+logfile.txt
+Wed Jun 21 19:45:49 EDT 2017
+sh: 0: Can't open s2.sh
+\n\n
+Wed Jun 21 19:46:13 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+logfile.txt
+Wed Jun 21 19:46:13 EDT 2017
+sh: 0: Can't open s2.sh
+\n\n
+Wed Jun 21 19:46:37 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+logfile.txt
+Wed Jun 21 19:46:37 EDT 2017

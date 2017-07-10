@@ -1,0 +1,26 @@
+#find differentially expressed genes with cuffdiff
+
+
+cd some/dir/with/bam/files/
+GENE_ANNO="/home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Annotation/Genes/genes.gtf"
+cuffdiff -p 16 -o $HOME_DIR"cuff" --no-update-check -L Control,AOM+DSS,AOM+DSS+Cur $GENE_ANNO \
+C2.bam.sorted.bam,C14.bam.sorted.bam,C15.bam.sorted.bam,C19.bam.sorted.bam C33.bam.sorted.bam,C36.bam.sorted.bam,C34.bam.sorted.bam,C40.bam.sorted.bam C55.bam.sorted.bam,C59.bam.sorted.bam,C54.bam.sorted.bam,C60.bam.sorted.bam 
+
+
+
+
+#shan's cell sample collect in 2017 and 2017
+'
+Batch	Sample	File Name	Description	reagents	Time
+1	RW-1	CL100022944_L1_HK500MUSozfNAAPRABPEI-44_1.fq.gz	positive control 1	TPA, 10ng/mL	RNA sample collected in 2017
+1	RW-2	CL100022944_L1_HK500MUSozfNAAQRABPEI-45_1.fq.gz	Treatment	TPA, 10ng/mL + mITC, 2.5uM	RNA sample collected in 2017
+1	RW-3	CL100022944_L1_HK500MUSozfNAARRABPEI-46_1.fq.gz	Control	None	RNA sample collected in 2016
+1	RW-4-L1	CL100022953_L1_HK500MUSozfNAASRAAPEI-47_1.fq.gz	positive control	TPA, 10ng/mL	RNA sample collected in 2016
+1	RW-4-L2	CL100022949_L2_HK500MUSozfNAASRAAPEI-47_1.fq.gz			RNA sample collected in 2016
+1	RW-5	CL100022944_L1_HK500MUSozfNAATRABPEI-48_1.fq.gz	Treatment	TPA, 10ng/mL +CA, 7.5uM	RNA sample collected in 2016
+1	RW-6	CL100022944_L1_HK500MUSozfNAAURABPEI-2_1.fq.gz	Treatment	TPA, 10ng/mL +FX, 6.25 uM	RNA sample collected in 2016
+1	RW-7	CL100022953_L1_HK500MUSozfNAAVRAAPEI-3_1.fq.gz	Treatment	TPA, 10ng/mL, CDDO, 0.05uM	RNA sample collected in 2016
+
+'
+cuffdiff -p 12 -o ../cuff/ -L control,TPA,TPA1,CA,FX,CDDO,mITC $GENE_ANNO RW03.sorted.bam RW04.sorted.bam RW01.sorted.bam RW05.sorted.bam RW06.sorted.bam RW07.sorted.bam RW02.sorted.bam
+

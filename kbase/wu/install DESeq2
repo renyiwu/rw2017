@@ -1,0 +1,665 @@
+
+sudo R
+install.packages("stringi")
+source("https://bioconductor.org/biocLite.R")
+biocLite("DESeq2")
+##
+The 3 packages that you found to contain curl-config:
+
+libcurl4-gnutls-dev
+libcurl4-nss-dev
+libcurl4-openssl-dev
+All seem to have the same functionality. I installed the first of these via Synaptic Package Manager and was then able to install RCurl from CRAN.
+
+So, if you choose the first option, open a terminal box and do
+
+sudo apt-get install libcurl4-gnutls-dev
+then go into R and do
+
+install.packages("RCurl")
+
+####################
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ R --version
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+http://www.gnu.org/licenses/.
+
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ R
+
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> biocLite(DSS)
+Error in biocLite(DSS) : could not find function "biocLite"
+> source("https://bioconductor.org/biocLite.R")
+Bioconductor version 3.5 (BiocInstaller 1.26.0), ?biocLite for help
+> biocLite(DSS)
+Error in "BiocUpgrade" %in% pkgs : object 'DSS' not found
+> 
+> biocLite("DSS")
+BioC_mirror: https://bioconductor.org
+Using Bioconductor 3.5 (BiocInstaller 1.26.0), R 3.4.1 (2017-06-30).
+Installing package(s) ‘DSS’
+Warning in install.packages(pkgs = doing, lib = lib, ...) :
+  'lib = "/usr/local/lib/R/site-library"' is not writable
+Would you like to use a personal library instead?  (y/n) y
+Would you like to create a personal library
+NA
+to install packages into?  (y/n) y
+Error in install.packages(pkgs = doing, lib = lib, ...) : 
+  unable to create ‘NA’
+> biocLite(DSS)q
+Error: unexpected symbol in "biocLite(DSS)q"
+> q()
+Save workspace image? [y/n/c]: y
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ sudo apt-update
+[sudo] password for administrator: 
+sudo: apt-update: command not found
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ sudo apt-get update
+Hit:1 http://us.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://us.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]    
+Ign:3 http://dl.google.com/linux/chrome-remote-desktop/deb stable InRelease    
+Get:4 http://us.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]  
+Get:5 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]     
+Hit:6 http://ppa.launchpad.net/embrosyn/cinnamon/ubuntu xenial InRelease       
+Ign:7 http://dl.google.com/linux/chrome/deb stable InRelease                   
+Hit:8 http://dl.google.com/linux/chrome-remote-desktop/deb stable Release      
+Get:9 http://us.archive.ubuntu.com/ubuntu xenial-updates/main amd64 DEP-11 Metadata [299 kB]
+Hit:10 http://dl.google.com/linux/chrome/deb stable Release                    
+Get:11 http://us.archive.ubuntu.com/ubuntu xenial-updates/main DEP-11 64x64 Icons [195 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 DEP-11 Metadata [163 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu xenial-updates/universe DEP-11 64x64 Icons [208 kB]
+Get:14 http://us.archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 DEP-11 Metadata [2,516 B]
+Get:15 http://us.archive.ubuntu.com/ubuntu xenial-backports/main amd64 DEP-11 Metadata [3,328 B]
+Get:16 http://us.archive.ubuntu.com/ubuntu xenial-backports/universe amd64 DEP-11 Metadata [4,672 B]
+Get:19 http://security.ubuntu.com/ubuntu xenial-security/main amd64 DEP-11 Metadata [54.6 kB]
+Get:20 http://security.ubuntu.com/ubuntu xenial-security/main DEP-11 64x64 Icons [45.7 kB]
+Get:21 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 DEP-11 Metadata [35.8 kB]
+Get:22 http://security.ubuntu.com/ubuntu xenial-security/universe DEP-11 64x64 Icons [52.2 kB]
+Fetched 1,370 kB in 0s (1,630 kB/s)                                    
+Reading package lists... Done
+N: Ignoring file '50unattended-upgrades.ucf-dist' in directory '/etc/apt/apt.conf.d/' as it has an invalid filename extension
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ sudo apt-get upgrade
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  account-plugin-ubuntuone libboost-locale1.58.0 libpoppler-qt5-1
+  libqt5bluetooth5 libqt5bluetooth5-bin libqt5keychain0 libqt5location5
+  libqt5location5-plugins libqt5positioning5-plugins libqt5purchasing5
+  libqt5quickparticles5 libqt5versitorganizer5 libqt5websockets5 libu1db-qt5-3
+  packagekit-backend-aptcc packagekit-tools python3-packagekit
+  qml-module-qt-websockets qml-module-qtbluetooth qml-module-qtlocation
+  qml-module-qtorganizer qml-module-qtpositioning qml-module-qtpurchasing
+  qml-module-qtqml-models2 qml-module-qtqml-statemachine
+  qml-module-qtquick-particles2 qml-module-qtsensors qml-module-qtwebsockets
+  qml-module-ubuntu-mediascanner0.1 qml-module-ubuntuone
+  qtdeclarative5-poppler1.0 qtdeclarative5-u1db1.0
+  qtdeclarative5-ubuntu-mediascanner0.1 qtdeclarative5-ubuntu-push-plugin
+  qtdeclarative5-ubuntu-syncmonitor0.1
+  qtdeclarative5-ubuntu-telephony-phonenumber0.1 qtdeclarative5-usermetrics0.1
+  ubuntu-html5-container ubuntu-html5-ui-toolkit ubuntu-sdk-libs ugene-data
+  unity-scope-click-departmentsdb
+Use 'sudo apt autoremove' to remove them.
+The following packages will be upgraded:
+  unity-scope-home
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/85.0 kB of archives.
+After this operation, 32.8 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+N: Ignoring file '50unattended-upgrades.ucf-dist' in directory '/etc/apt/apt.conf.d/' as it has an invalid filename extension
+(Reading database ... 387613 files and directories currently installed.)
+Preparing to unpack .../unity-scope-home_6.8.2+16.04.20160212.1-0ubuntu1_amd64.deb ...
+Unpacking unity-scope-home (6.8.2+16.04.20160212.1-0ubuntu1) over (6.8.2+14.04.20131029.1-0ubuntu1) ...
+Setting up unity-scope-home (6.8.2+16.04.20160212.1-0ubuntu1) ...
+N: Ignoring file '50unattended-upgrades.ucf-dist' in directory '/etc/apt/apt.conf.d/' as it has an invalid filename extension
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ sudo R
+
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> source("https://bioconductor.org/biocLite.R")
+Bioconductor version 3.5 (BiocInstaller 1.26.0), ?biocLite for help
+> biocLite("DSS")
+BioC_mirror: https://bioconductor.org
+Using Bioconductor 3.5 (BiocInstaller 1.26.0), R 3.4.1 (2017-06-30).
+Installing package(s) ‘DSS’
+also installing the dependencies ‘RCurl’, ‘GenomicRanges’, ‘SummarizedExperiment’, ‘GenomeInfoDb’, ‘bsseq’
+
+trying URL 'https://cran.rstudio.com/src/contrib/RCurl_1.95-4.8.tar.gz'
+Content type 'application/x-gzip' length 916934 bytes (895 KB)
+==================================================
+downloaded 895 KB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/GenomicRanges_1.28.3.tar.gz'
+Content type 'application/x-gzip' length 1009751 bytes (986 KB)
+==================================================
+downloaded 986 KB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/SummarizedExperiment_1.6.3.tar.gz'
+Content type 'application/x-gzip' length 980208 bytes (957 KB)
+==================================================
+downloaded 957 KB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/GenomeInfoDb_1.12.2.tar.gz'
+Content type 'application/x-gzip' length 3331461 bytes (3.2 MB)
+==================================================
+downloaded 3.2 MB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/bsseq_1.12.1.tar.gz'
+Content type 'application/x-gzip' length 2112129 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/DSS_2.16.0.tar.gz'
+Content type 'application/x-gzip' length 763587 bytes (745 KB)
+==================================================
+downloaded 745 KB
+
+* installing *source* package ‘RCurl’ ...
+** package ‘RCurl’ successfully unpacked and MD5 sums checked
+checking for curl-config... no
+Cannot find curl-config
+ERROR: configuration failed for package ‘RCurl’
+* removing ‘/usr/local/lib/R/site-library/RCurl’
+ERROR: dependency ‘RCurl’ is not available for package ‘GenomeInfoDb’
+* removing ‘/usr/local/lib/R/site-library/GenomeInfoDb’
+ERROR: dependency ‘GenomeInfoDb’ is not available for package ‘GenomicRanges’
+* removing ‘/usr/local/lib/R/site-library/GenomicRanges’
+ERROR: dependencies ‘GenomicRanges’, ‘GenomeInfoDb’ are not available for package ‘SummarizedExperiment’
+* removing ‘/usr/local/lib/R/site-library/SummarizedExperiment’
+ERROR: dependencies ‘GenomicRanges’, ‘SummarizedExperiment’, ‘GenomeInfoDb’ are not available for package ‘bsseq’
+* removing ‘/usr/local/lib/R/site-library/bsseq’
+ERROR: dependency ‘bsseq’ is not available for package ‘DSS’
+* removing ‘/usr/local/lib/R/site-library/DSS’
+
+The downloaded source packages are in
+	‘/tmp/Rtmpk0E3oK/downloaded_packages’
+Warning messages:
+1: In install.packages(pkgs = doing, lib = lib, ...) :
+  installation of package ‘RCurl’ had non-zero exit status
+2: In install.packages(pkgs = doing, lib = lib, ...) :
+  installation of package ‘GenomeInfoDb’ had non-zero exit status
+3: In install.packages(pkgs = doing, lib = lib, ...) :
+  installation of package ‘GenomicRanges’ had non-zero exit status
+4: In install.packages(pkgs = doing, lib = lib, ...) :
+  installation of package ‘SummarizedExperiment’ had non-zero exit status
+5: In install.packages(pkgs = doing, lib = lib, ...) :
+  installation of package ‘bsseq’ had non-zero exit status
+6: In install.packages(pkgs = doing, lib = lib, ...) :
+  installation of package ‘DSS’ had non-zero exit status
+> biocLite("DSS")
+BioC_mirror: https://bioconductor.org
+Using Bioconductor 3.5 (BiocInstaller 1.26.0), R 3.4.1 (2017-06-30).
+Installing package(s) ‘DSS’
+also installing the dependencies ‘GenomicRanges’, ‘SummarizedExperiment’, ‘GenomeInfoDb’, ‘bsseq’
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/GenomicRanges_1.28.3.tar.gz'
+Content type 'application/x-gzip' length 1009751 bytes (986 KB)
+==================================================
+downloaded 986 KB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/SummarizedExperiment_1.6.3.tar.gz'
+Content type 'application/x-gzip' length 980208 bytes (957 KB)
+==================================================
+downloaded 957 KB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/GenomeInfoDb_1.12.2.tar.gz'
+Content type 'application/x-gzip' length 3331461 bytes (3.2 MB)
+==================================================
+downloaded 3.2 MB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/bsseq_1.12.1.tar.gz'
+Content type 'application/x-gzip' length 2112129 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/DSS_2.16.0.tar.gz'
+Content type 'application/x-gzip' length 763587 bytes (745 KB)
+==================================================
+downloaded 745 KB
+
+* installing *source* package ‘GenomeInfoDb’ ...
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (GenomeInfoDb)
+* installing *source* package ‘GenomicRanges’ ...
+** libs
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c IRanges_stubs.c -o IRanges_stubs.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c R_init_GenomicRanges.c -o R_init_GenomicRanges.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c S4Vectors_stubs.c -o S4Vectors_stubs.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c transcript_utils.c -o transcript_utils.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o GenomicRanges.so IRanges_stubs.o R_init_GenomicRanges.o S4Vectors_stubs.o transcript_utils.o -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/GenomicRanges/libs
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (GenomicRanges)
+* installing *source* package ‘SummarizedExperiment’ ...
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (SummarizedExperiment)
+* installing *source* package ‘bsseq’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (bsseq)
+* installing *source* package ‘DSS’ ...
+** libs
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c compute_var_smooth.c -o compute_var_smooth.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c filter.c -o filter.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c nitem.c -o nitem.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o DSS.so compute_var_smooth.o filter.o nitem.o -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/DSS/libs
+** R
+** data
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (DSS)
+
+The downloaded source packages are in
+	‘/tmp/Rtmpk0E3oK/downloaded_packages’
+> q()
+Save workspace image? [y/n/c]: y
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ ls
+combined.csv                  S3.fastq.gz
+extract_loop.sh               S4_bismark_bt2.bam
+log.txt                       S4_bismark_bt2_SE_report.txt
+S1_bismark_bt2.bam            S4.cov
+S1_bismark_bt2_SE_report.txt  S4.fastq.gz
+S1.cov                        S5_bismark_bt2.bam
+S1.fastq.gz                   S5_bismark_bt2_SE_report.txt
+S2_bismark_bt2.bam            S5.cov
+S2_bismark_bt2_SE_report.txt  S5.fastq.gz
+S2.cov                        S6_bismark_bt2.bam
+S2.fastq.gz                   S6_bismark_bt2_SE_report.txt
+S3_bismark_bt2.bam            S6.cov
+S3_bismark_bt2_SE_report.txt  S6.fastq.gz
+S3.cov                        workfow.txt
+administrator@SOP-1482:~/Documents/Renyi/Shan_methyl_2017$ sudo R
+
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> source("https://bioconductor.org/biocLite.R")
+Bioconductor version 3.5 (BiocInstaller 1.26.0), ?biocLite for help
+> biocLite("DESeq2")
+BioC_mirror: https://bioconductor.org
+Using Bioconductor 3.5 (BiocInstaller 1.26.0), R 3.4.1 (2017-06-30).
+Installing package(s) ‘DESeq2’
+also installing the dependencies ‘annotate’, ‘genefilter’, ‘geneplotter’
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/annotate_1.54.0.tar.gz'
+Content type 'application/x-gzip' length 1866174 bytes (1.8 MB)
+==================================================
+downloaded 1.8 MB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/genefilter_1.58.1.tar.gz'
+Content type 'application/x-gzip' length 1432383 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/geneplotter_1.54.0.tar.gz'
+Content type 'application/x-gzip' length 1426788 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/DESeq2_1.16.1.tar.gz'
+Content type 'application/x-gzip' length 2120407 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+* installing *source* package ‘annotate’ ...
+** R
+** data
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (annotate)
+* installing *source* package ‘genefilter’ ...
+** libs
+g++  -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c half_range_mode.cpp -o half_range_mode.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c init.c -o init.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c nd.c -o nd.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c pAUC.c -o pAUC.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowPAUCs.c -o rowPAUCs.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowttests.c -o rowttests.o
+gfortran   -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4  -c ttest.f -o ttest.o
+g++ -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o genefilter.so half_range_mode.o init.o nd.o pAUC.o rowPAUCs.o rowttests.o ttest.o -lgfortran -lm -lquadmath -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/genefilter/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (genefilter)
+* installing *source* package ‘geneplotter’ ...
+** R
+** data
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (geneplotter)
+* installing *source* package ‘DESeq2’ ...
+** libs
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c DESeq2.cpp -o DESeq2.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+g++ -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o DESeq2.so DESeq2.o RcppExports.o -llapack -lblas -lgfortran -lm -lquadmath -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/DESeq2/libs
+** R
+** inst
+** preparing package for lazy loading
+Error in dyn.load(file, DLLpath = DLLpath, ...) : 
+  unable to load shared object '/usr/local/lib/R/site-library/stringi/libs/stringi.so':
+  libicui18n.so.52: cannot open shared object file: No such file or directory
+ERROR: lazy loading failed for package ‘DESeq2’
+* removing ‘/usr/local/lib/R/site-library/DESeq2’
+
+The downloaded source packages are in
+	‘/tmp/RtmphjXPii/downloaded_packages’
+Warning message:
+In install.packages(pkgs = doing, lib = lib, ...) :
+  installation of package ‘DESeq2’ had non-zero exit status
+> 
+> install.packages("stringi")
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'https://cran.cnr.berkeley.edu/src/contrib/stringi_1.1.5.tar.gz'
+Content type 'application/x-gzip' length 3645872 bytes (3.5 MB)
+==================================================
+downloaded 3.5 MB
+
+* installing *source* package ‘stringi’ ...
+** package ‘stringi’ successfully unpacked and MD5 sums checked
+checking for local ICUDT_DIR... icu55/data
+checking for R_HOME... /usr/lib/R
+checking for R... /usr/lib/R/bin/R
+checking for R >= 3.1.0 for C++11 use... yes
+checking for R < 3.4.0 for CXX1X flag use... no
+checking for cat... /bin/cat
+checking for gcc... gcc -std=gnu99
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc -std=gnu99 accepts -g... yes
+checking for gcc -std=gnu99 option to accept ISO C89... none needed
+checking how to run the C preprocessor... g++ -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking elf.h usability... yes
+checking elf.h presence... yes
+checking for elf.h... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ -std=gnu++11 accepts -g... yes
+checking whether the C++ compiler supports the long long type... yes
+checking whether the compiler implements namespaces... yes
+checking whether the compiler supports Standard Template Library... yes
+checking whether std::map is available... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking with pkg-config for the system ICU4C... 55.1
+checking for ICU4C >= 52... yes
+checking for additional required CPPFLAGS, LDFLAGS, and LIBS... done
+checking whether we may build an ICU4C-based project... yes
+checking programmatically for sufficient U_ICU_VERSION_MAJOR_NUM... yes
+checking for available ICU data library (ucnv, uloc, utrans)... yes
+checking for available ICU data library (ucol)... yes
+configure: creating ./config.status
+config.status: creating src/Makevars
+config.status: creating src/uconfig_local.h
+config.status: creating src/install.libs.R
+
+*** stringi configure summary:
+    ICU_FOUND=1
+    STRINGI_CXXSTD=CXX_STD=CXX11
+    STRINGI_CFLAGS=   -fpic
+    STRINGI_CPPFLAGS=-I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H
+    STRINGI_CXXFLAGS=   -fpic
+    STRINGI_LDFLAGS=-L/usr/lib/x86_64-linux-gnu  
+    STRINGI_LIBS=-licui18n -licuuc -licudata  
+
+*** compiler settings used:
+    CC=gcc -std=gnu99
+    CPP=g++ -E
+    LD=g++
+    CFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -fpic  
+    CPPFLAGS=   -UDEBUG -DNDEBUG
+    CXX=g++ -std=gnu++11
+    CXXFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -fpic  
+    LDFLAGS=  
+    LIBS=  
+
+** libs
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_brkiter.cpp -o stri_brkiter.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_collator.cpp -o stri_collator.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_common.cpp -o stri_common.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_compare.cpp -o stri_compare.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_base.cpp -o stri_container_base.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_bytesearch.cpp -o stri_container_bytesearch.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_listint.cpp -o stri_container_listint.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_listraw.cpp -o stri_container_listraw.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_listutf8.cpp -o stri_container_listutf8.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_regex.cpp -o stri_container_regex.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_usearch.cpp -o stri_container_usearch.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_utf16.cpp -o stri_container_utf16.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_utf8.cpp -o stri_container_utf8.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_container_utf8_indexable.cpp -o stri_container_utf8_indexable.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_encoding_conversion.cpp -o stri_encoding_conversion.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_encoding_detection.cpp -o stri_encoding_detection.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_encoding_management.cpp -o stri_encoding_management.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_escape.cpp -o stri_escape.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_exception.cpp -o stri_exception.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_ICU_settings.cpp -o stri_ICU_settings.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_join.cpp -o stri_join.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_length.cpp -o stri_length.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_pad.cpp -o stri_pad.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_prepare_arg.cpp -o stri_prepare_arg.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_random.cpp -o stri_random.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_reverse.cpp -o stri_reverse.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_count.cpp -o stri_search_class_count.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_detect.cpp -o stri_search_class_detect.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_extract.cpp -o stri_search_class_extract.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_locate.cpp -o stri_search_class_locate.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_replace.cpp -o stri_search_class_replace.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_split.cpp -o stri_search_class_split.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_startsendswith.cpp -o stri_search_class_startsendswith.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_subset.cpp -o stri_search_class_subset.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_class_trim.cpp -o stri_search_class_trim.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_common.cpp -o stri_search_common.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_count.cpp -o stri_search_coll_count.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_detect.cpp -o stri_search_coll_detect.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_extract.cpp -o stri_search_coll_extract.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_locate.cpp -o stri_search_coll_locate.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_replace.cpp -o stri_search_coll_replace.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_split.cpp -o stri_search_coll_split.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_startsendswith.cpp -o stri_search_coll_startsendswith.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_coll_subset.cpp -o stri_search_coll_subset.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_boundaries_count.cpp -o stri_search_boundaries_count.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_boundaries_extract.cpp -o stri_search_boundaries_extract.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_boundaries_locate.cpp -o stri_search_boundaries_locate.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_boundaries_split.cpp -o stri_search_boundaries_split.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_count.cpp -o stri_search_fixed_count.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_detect.cpp -o stri_search_fixed_detect.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_extract.cpp -o stri_search_fixed_extract.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_locate.cpp -o stri_search_fixed_locate.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_replace.cpp -o stri_search_fixed_replace.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_split.cpp -o stri_search_fixed_split.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_subset.cpp -o stri_search_fixed_subset.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_fixed_startsendswith.cpp -o stri_search_fixed_startsendswith.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_in.cpp -o stri_search_in.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_other_replace.cpp -o stri_search_other_replace.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_other_split.cpp -o stri_search_other_split.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_count.cpp -o stri_search_regex_count.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_detect.cpp -o stri_search_regex_detect.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_extract.cpp -o stri_search_regex_extract.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_locate.cpp -o stri_search_regex_locate.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_match.cpp -o stri_search_regex_match.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_replace.cpp -o stri_search_regex_replace.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_split.cpp -o stri_search_regex_split.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_search_regex_subset.cpp -o stri_search_regex_subset.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_sort.cpp -o stri_sort.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_stats.cpp -o stri_stats.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_stringi.cpp -o stri_stringi.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_sub.cpp -o stri_sub.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_test.cpp -o stri_test.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_time_zone.cpp -o stri_time_zone.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_time_calendar.cpp -o stri_time_calendar.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_time_symbols.cpp -o stri_time_symbols.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_time_format.cpp -o stri_time_format.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_trans_casemap.cpp -o stri_trans_casemap.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_trans_other.cpp -o stri_trans_other.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_trans_normalization.cpp -o stri_trans_normalization.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_trans_transliterate.cpp -o stri_trans_transliterate.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_ucnv.cpp -o stri_ucnv.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_uloc.cpp -o stri_uloc.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_utils.cpp -o stri_utils.o
+g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG -I. -I/usr/include/x86_64-linux-gnu   -UDEBUG -DNDEBUG -DU_HAVE_ELF_H    -fpic -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -c stri_wrap.cpp -o stri_wrap.o
+g++ -std=gnu++11 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o stringi.so stri_brkiter.o stri_collator.o stri_common.o stri_compare.o stri_container_base.o stri_container_bytesearch.o stri_container_listint.o stri_container_listraw.o stri_container_listutf8.o stri_container_regex.o stri_container_usearch.o stri_container_utf16.o stri_container_utf8.o stri_container_utf8_indexable.o stri_encoding_conversion.o stri_encoding_detection.o stri_encoding_management.o stri_escape.o stri_exception.o stri_ICU_settings.o stri_join.o stri_length.o stri_pad.o stri_prepare_arg.o stri_random.o stri_reverse.o stri_search_class_count.o stri_search_class_detect.o stri_search_class_extract.o stri_search_class_locate.o stri_search_class_replace.o stri_search_class_split.o stri_search_class_startsendswith.o stri_search_class_subset.o stri_search_class_trim.o stri_search_common.o stri_search_coll_count.o stri_search_coll_detect.o stri_search_coll_extract.o stri_search_coll_locate.o stri_search_coll_replace.o stri_search_coll_split.o stri_search_coll_startsendswith.o stri_search_coll_subset.o stri_search_boundaries_count.o stri_search_boundaries_extract.o stri_search_boundaries_locate.o stri_search_boundaries_split.o stri_search_fixed_count.o stri_search_fixed_detect.o stri_search_fixed_extract.o stri_search_fixed_locate.o stri_search_fixed_replace.o stri_search_fixed_split.o stri_search_fixed_subset.o stri_search_fixed_startsendswith.o stri_search_in.o stri_search_other_replace.o stri_search_other_split.o stri_search_regex_count.o stri_search_regex_detect.o stri_search_regex_extract.o stri_search_regex_locate.o stri_search_regex_match.o stri_search_regex_replace.o stri_search_regex_split.o stri_search_regex_subset.o stri_sort.o stri_stats.o stri_stringi.o stri_sub.o stri_test.o stri_time_zone.o stri_time_calendar.o stri_time_symbols.o stri_time_format.o stri_trans_casemap.o stri_trans_other.o stri_trans_normalization.o stri_trans_transliterate.o stri_ucnv.o stri_uloc.o stri_utils.o stri_wrap.o -L/usr/lib/x86_64-linux-gnu -licui18n -licuuc -licudata -L/usr/lib/R/lib -lR
+installing via 'install.libs.R' to /usr/local/lib/R/site-library/stringi
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (stringi)
+
+The downloaded source packages are in
+	‘/tmp/RtmphjXPii/downloaded_packages’
+> biocLite("DESeq2")
+BioC_mirror: https://bioconductor.org
+Using Bioconductor 3.5 (BiocInstaller 1.26.0), R 3.4.1 (2017-06-30).
+Installing package(s) ‘DESeq2’
+trying URL 'https://bioconductor.org/packages/3.5/bioc/src/contrib/DESeq2_1.16.1.tar.gz'
+Content type 'application/x-gzip' length 2120407 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+* installing *source* package ‘DESeq2’ ...
+** libs
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c DESeq2.cpp -o DESeq2.o
+g++  -I/usr/share/R/include -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"    -fpic  -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+g++ -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o DESeq2.so DESeq2.o RcppExports.o -llapack -lblas -lgfortran -lm -lquadmath -L/usr/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/DESeq2/libs
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (DESeq2)
+
+The downloaded source packages are in
+	‘/tmp/RtmphjXPii/downloaded_packages’
+> 
+

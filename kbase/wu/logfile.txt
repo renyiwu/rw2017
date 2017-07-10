@@ -1,0 +1,835 @@
+Sun Jun 18 18:19:53 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh
+cuffdiff.sh
+cuffdiff.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+setd.sh
+Sun Jun 18 18:19:53 EDT 2017
+from cuffdiff
+Wed Jun 21 19:35:09 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+setd.sh
+Wed Jun 21 19:35:09 EDT 2017
+from cuffdiff
+cd2.sh
+Wed Jun 21 19:36:02 EDT 2017
+n
+
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+setd.sh
+Wed Jun 21 19:36:02 EDT 2017
+from cuffdiff
+cd2.sh
+
+
+
+Wed Jun 21 19:37:48 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+setd.sh
+Wed Jun 21 19:37:48 EDT 2017
+from cuffdiff
+cd2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+
+
+
+Wed Jun 21 19:39:42 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+setd.sh
+test1/
+Wed Jun 21 19:39:42 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+cd2.sh
+mkdir: created directory ‘test’
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+\n\n
+Wed Jun 21 19:41:37 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+setd.sh
+test/
+test1/
+Wed Jun 21 19:41:37 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+mkdir: cannot create directory ‘test’: File exists
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+\n\n
+Wed Jun 21 19:42:56 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+setd.sh
+test/
+test1/
+Wed Jun 21 19:42:56 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+mkdir: cannot create directory ‘test’: File exists
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+\n\n
+Wed Jun 21 19:46:59 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+setd.sh
+test/
+test1/
+Wed Jun 21 19:46:59 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+
+
+
+Wed Jun 21 19:48:09 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+setd.sh
+test/
+test1/
+Wed Jun 21 19:48:09 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+new
+
+
+Wed Jun 21 19:48:54 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+setd.sh
+test/
+test1/
+Wed Jun 21 19:48:54 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+new\n\n
+Wed Jun 21 19:49:14 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+setd.sh
+test/
+test1/
+Wed Jun 21 19:49:14 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+new
+
+Wed Jun 21 19:53:45 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+setd.sh
+test/
+test1/
+Wed Jun 21 19:53:45 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+Wed Jun 21 19:58:49 EDT 2017
+Currently in: /home/administrator/Documents/Renyi/wu , with these file/folder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+setd.sh
+test/
+test1/
+Wed Jun 21 19:59:24 EDT 2017
+Currently in: /home/administrator/Documents/Renyi/wu , with these file/folder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+new
+
+Wed Jun 21 20:06:23 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+Wed Jun 21 20:06:23 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+job done.
+Wed Jun 21 20:06:23 EDT 2017
+Press any key to quit
+new
+
+Wed Jun 21 20:07:47 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+Wed Jun 21 20:07:47 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+job done.
+Wed Jun 21 20:07:47 EDT 2017
+Press any key to quit
+new
+
+Wed Jun 21 20:08:53 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+Wed Jun 21 20:08:53 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+new
+
+Wed Jun 21 20:16:13 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+1
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+Wed Jun 21 20:16:13 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+job done.
+Wed Jun 21 20:16:13 EDT 2017
+Press any key to quit
+new
+
+Wed Jun 21 20:17:18 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+1
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+Wed Jun 21 20:17:18 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+job done.
+Wed Jun 21 20:17:18 EDT 2017
+new
+
+Wed Jun 21 20:20:08 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+1
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+Wed Jun 21 20:20:08 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+mkdir: cannot create directory ‘test’: File exists
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+job done.
+Wed Jun 21 20:20:08 EDT 2017
+new
+
+Wed Jun 21 20:21:24 EDT 2017
+current in: /home/administrator/Documents/Renyi/wu , with these filefolder(s)
+1
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+Wed Jun 21 20:21:24 EDT 2017
+
+from cuffdiff
+/home/administrator/Documents/Renyi/wu
+s2.sh
+mkdir: cannot create directory ‘test’: File exists
+/home/administrator/Documents/Renyi/wu
+/home/administrator/Documents/Renyi/wu/test1
+job done.
+Wed Jun 21 20:21:24 EDT 2017
+Wed Jun 28 22:04:17 EDT 2017
+Currently in: /home/administrator/Documents/Renyi/wu , with these file/folder(s)
+1
+cd2.sh~
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastqc-0.1.sh
+fastqc-0.1.sh~
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+workflow_deseq2_john.txt
+set annotation file as: /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Annotation/Genes/genes.gtf
+ Set gene reference folder as: /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Sequence/Bowtie2Index/genome
+mkdir: created directory ‘fastq’
+mkdir: created directory ‘tophat_out’
+mkdir: created directory ‘bam’
+mkdir: created directory ‘bam_sorted’
+mkdir: created directory ‘cuff’
+mv: cannot stat ‘*.gz’: No such file or directory
+Skipping './fastq/*.gz' which didn't exist, or couldn't be read
+Starting tophat2...running...
+mkdir: created directory ‘tophat_out/*’
+
+[2017-06-28 22:04:18] Beginning TopHat run (v2.1.0)
+-----------------------------------------------
+[2017-06-28 22:04:18] Checking for Bowtie
+		  Bowtie version:	 2.2.8.0
+[2017-06-28 22:04:18] Checking for Bowtie index files (genome)..
+[2017-06-28 22:04:18] Checking for reference FASTA file
+[2017-06-28 22:04:18] Generating SAM header for /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Sequence/Bowtie2Index/genome
+Traceback (most recent call last):
+  File "/usr/bin/tophat", line 4107, in <module>
+    sys.exit(main())
+  File "/usr/bin/tophat", line 3961, in main
+    params.read_params = check_reads_format(params, reads_list)
+  File "/usr/bin/tophat", line 1856, in check_reads_format
+    zf = ZReader(f_name, params)
+  File "/usr/bin/tophat", line 1809, in __init__
+    self.file=open(filename)
+IOError: [Errno 2] No such file or directory: './fastq/*'
+mv: cannot stat ‘./tophat_out/*/accepted_hits.bam’: No such file or directory
+Finished file *.bam
+tophat2 job done.
+Running samtools...
+open: No such file or directory
+[bam_sort_core] fail to open file ./bam/*.bam
+Done! Got these files in bam_sorted folder:
+total 0
+samtools indexing...
+mkdir: created directory ‘bam_sorted/index’
+open: No such file or directory
+[bam_index_build2] fail to open the BAM file.
+mv: cannot stat ‘./bam_sorted/*.bai’: No such file or directory
+samtool indexing done. 
+Wed Jun 28 22:04:24 EDT 2017
+total 0
+You are using Cufflinks v2.2.1, which is the most recent release.
+open: No such file or directory
+Error: cannot open file RW03.sorted.bam for reading. Unrecognized file type
+job done.
+Wed Jun 28 22:04:24 EDT 2017
+Wed Jun 28 22:07:03 EDT 2017
+Currently in: /home/administrator/Documents/Renyi/wu , with these file/folder(s)
+1
+bam/
+bam_sorted/
+cd2.sh~
+cuff/
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastq/
+fastqc-0.1.sh
+fastqc-0.1.sh~
+FastQC_reports/
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+tophat_out/
+workflow_deseq2_john.txt
+set annotation file as: /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Annotation/Genes/genes.gtf
+ Set gene reference folder as: /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Sequence/Bowtie2Index/genome
+mkdir: cannot create directory ‘fastq’: File exists
+mkdir: cannot create directory ‘tophat_out’: File exists
+mkdir: cannot create directory ‘bam’: File exists
+mkdir: cannot create directory ‘bam_sorted’: File exists
+mkdir: cannot create directory ‘cuff’: File exists
+mv: cannot stat ‘*.gz’: No such file or directory
+mkdir: cannot create directory ‘FastQC_reports’: File exists
+Skipping './fastq/*.gz' which didn't exist, or couldn't be read
+Starting tophat2...running...
+
+[2017-06-28 22:07:04] Beginning TopHat run (v2.1.0)
+-----------------------------------------------
+[2017-06-28 22:07:04] Checking for Bowtie
+		  Bowtie version:	 2.2.8.0
+[2017-06-28 22:07:04] Checking for Bowtie index files (genome)..
+[2017-06-28 22:07:04] Checking for reference FASTA file
+[2017-06-28 22:07:04] Generating SAM header for /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Sequence/Bowtie2Index/genome
+Traceback (most recent call last):
+  File "/usr/bin/tophat", line 4107, in <module>
+    sys.exit(main())
+  File "/usr/bin/tophat", line 3961, in main
+    params.read_params = check_reads_format(params, reads_list)
+  File "/usr/bin/tophat", line 1856, in check_reads_format
+    zf = ZReader(f_name, params)
+  File "/usr/bin/tophat", line 1809, in __init__
+    self.file=open(filename)
+IOError: [Errno 2] No such file or directory: './fastq/*'
+mv: cannot stat ‘./tophat_out/*/accepted_hits.bam’: No such file or directory
+Finished file *.bam
+tophat2 job done.
+Running samtools...
+open: No such file or directory
+[bam_sort_core] fail to open file ./bam/*.bam
+Done! Got these files in bam_sorted folder:
+total 4.0K
+drwxrwsr-x 2 administrator administrator 4.0K Jun 28 22:04 index
+samtools indexing...
+open: No such file or directory
+[bam_index_build2] fail to open the BAM file.
+mv: cannot stat ‘./bam_sorted/*.bai’: No such file or directory
+samtool indexing done. 
+Wed Jun 28 22:07:05 EDT 2017
+total 0
+You are using Cufflinks v2.2.1, which is the most recent release.
+open: No such file or directory
+Error: cannot open file RW03.sorted.bam for reading. Unrecognized file type
+job done.
+Wed Jun 28 22:07:05 EDT 2017
+Wed Jun 28 22:07:14 EDT 2017
+Currently in: /home/administrator/Documents/Renyi/wu , with these file/folder(s)
+1
+bam/
+bam_sorted/
+cd2.sh~
+cuff/
+cuffdiff.sh
+cuffdiff.sh~
+cuffdiff_shan.sh
+cuffdiff_shan.sh~
+fastq/
+fastqc-0.1.sh
+fastqc-0.1.sh~
+FastQC_reports/
+logfile.txt
+merge.sh
+merge.sh~
+rseqwu-0.3.sh
+rseqwu-0.3.sh~
+s1.sh
+s1.sh~
+s2.sh
+s3
+s3~
+setd.sh
+test/
+test1/
+tophat_out/
+workflow_deseq2_john.txt
+set annotation file as: /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Annotation/Genes/genes.gtf
+ Set gene reference folder as: /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Sequence/Bowtie2Index/genome
+mkdir: cannot create directory ‘fastq’: File exists
+mkdir: cannot create directory ‘tophat_out’: File exists
+mkdir: cannot create directory ‘bam’: File exists
+mkdir: cannot create directory ‘bam_sorted’: File exists
+mkdir: cannot create directory ‘cuff’: File exists
+mv: cannot stat ‘*.gz’: No such file or directory
+mkdir: cannot create directory ‘FastQC_reports’: File exists
+Skipping './fastq/*.gz' which didn't exist, or couldn't be read
+Starting tophat2...running...
+
+[2017-06-28 22:07:14] Beginning TopHat run (v2.1.0)
+-----------------------------------------------
+[2017-06-28 22:07:14] Checking for Bowtie
+		  Bowtie version:	 2.2.8.0
+[2017-06-28 22:07:14] Checking for Bowtie index files (genome)..
+[2017-06-28 22:07:14] Checking for reference FASTA file
+[2017-06-28 22:07:14] Generating SAM header for /home/administrator/Documents/mm9.2_for_bismark/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Sequence/Bowtie2Index/genome
+Traceback (most recent call last):
+  File "/usr/bin/tophat", line 4107, in <module>
+    sys.exit(main())
+  File "/usr/bin/tophat", line 3961, in main
+    params.read_params = check_reads_format(params, reads_list)
+  File "/usr/bin/tophat", line 1856, in check_reads_format
+    zf = ZReader(f_name, params)
+  File "/usr/bin/tophat", line 1809, in __init__
+    self.file=open(filename)
+IOError: [Errno 2] No such file or directory: './fastq/*'
+mv: cannot stat ‘./tophat_out/*/accepted_hits.bam’: No such file or directory
+Finished file *.bam
+tophat2 job done.
+Running samtools...
+open: No such file or directory
+[bam_sort_core] fail to open file ./bam/*.bam
+Done! Got these files in bam_sorted folder:
+total 4.0K
+drwxrwsr-x 2 administrator administrator 4.0K Jun 28 22:04 index
+samtools indexing...
+open: No such file or directory
+[bam_index_build2] fail to open the BAM file.
+mv: cannot stat ‘./bam_sorted/*.bai’: No such file or directory
+samtool indexing done. 
+Wed Jun 28 22:07:15 EDT 2017
+total 0
+You are using Cufflinks v2.2.1, which is the most recent release.
+open: No such file or directory
+Error: cannot open file RW03.sorted.bam for reading. Unrecognized file type
+job done.
+Wed Jun 28 22:07:15 EDT 2017

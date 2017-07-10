@@ -1,0 +1,163 @@
+// using DESeq2
+https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf
+http://www.bioconductor.org/help/workflows/rnaseqGene/
+
+$ R
+> library(DESeq2)
+# load matrix of read counts (produced by featureCounts and my convert3.py)
+> tab <- read.csv("comb.count", sep="\t", row.names="Symbol")
+> dim(tab)
+[1] 24391    12
+
+# create sample matrix
+> mat <- matrix(c(rep("Control", 4), rep("AOM-DSS", 4), rep("AOM-DSS-Cur", 4),
+  0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1), nrow=12, ncol=2)
+> colnames(mat) <- c("condition", "batch")
+> row.names(mat) <- colnames(tab)
+
+# alternative for row.names: Control_0, Control_1, etc.
+  #> row.names(mat) <- c(paste("Control_", rep(0:3), sep=""),
+  #  paste("AOM-DSS_", rep(0:3), sep=""), paste("AOM-DSS-Cur_", rep(0:3), sep=""))
+  # NOTE: this causes an error with DESeqDataSetFromMatrix: colnames must match colData rownmaes
+
+# combine data, matrix, and design formula
+> dds <- DESeqDataSetFromMatrix(countData=tab, colData=mat, design= ~ batch + condition)
+# make "Control" the baseline sample, to compare against
+> dds$condition <- relevel(dds$condition, ref="Control")
+
+# can filter at this point, e.g. at least one read for a gene (across all samples):
+#   > dds <- dds[ rowSums(counts(dds)) > 1, ]
+#   or more similar to edgeR, at least one count in at least two samples:
+#   > dds <- dds[ rowSums(counts(dds) >= 1) >= 2, ]
+
+# call DESeq
+> dds <- DESeq(dds)
+
+
+# results() function
+> res <- results(dds)
+# by default, this tests last part of design (here, 'condition')
+#   and last vs. first (here, 'AOM-DSS-Cur' vs 'Control')
+#   -> can be adjusted by 'contrast'; default is equivalent to
+#     contrast=c("condition", "AOM-DSS-Cur", "Control")
+# lfcThreshold = 0 by default; lfcThreshold = 1 requires at least 2-fold expression differences
+# alpha = 0.1 by default; alpha = 0.05 lowers false discovery rate threshold to 0.05;
+#   FDR referred to as 'padj' in output
+# also possible to filter results() output afterwards with subset, e.g.
+#   > resSig <- subset(res, padj < 0.1)
+#   > head(resSig[ order(resSig$log2FoldChange), ])
+
+> mcols(res, use.names=T)
+DataFrame with 6 rows and 2 columns
+                       type                                                  description
+                <character>                                                  <character>
+baseMean       intermediate                    mean of normalized counts for all samples  # invariable for res/res2/res3
+log2FoldChange      results     log2 fold change (MAP): condition AOM-DSS-Cur vs Control
+lfcSE               results             standard error: condition AOM-DSS-Cur vs Control
+stat                results             Wald statistic: condition AOM-DSS-Cur vs Control
+pvalue              results          Wald test p-value: condition AOM-DSS-Cur vs Control
+padj                results                                         BH adjusted p-values
+
+
+> summary(res)
+out of 18632 with nonzero total read count
+adjusted p-value < 0.1
+LFC > 0 (up)     : 221, 1.2% 
+LFC < 0 (down)   : 393, 2.1% 
+outliers [1]     : 12, 0.064% 
+low counts [2]   : 5329, 29% 
+(mean count < 5)
+
+> res2 <- results(dds, contrast=c("condition", "AOM-DSS", "Control"))
+> summary(res2)
+out of 18632 with nonzero total read count
+adjusted p-value < 0.1
+LFC > 0 (up)     : 548, 2.9% 
+LFC < 0 (down)   : 534, 2.9% 
+outliers [1]     : 12, 0.064% 
+low counts [2]   : 4619, 25% 
+(mean count < 3)
+
+
+# res compared Control to AOM-DSS-Cur
+# 6 columns: baseMean, log2FoldChange, lfcSE, stat, pvalue, padj
+> length(res$pvalue)
+[1] 24391
+> sum(res$padj < 0.1, na.rm=T)
+[1] 614   # matches summary(res) above -- 221 up, 393 down
+# also can run sum(!is.na(res$padj) & res$padj < 0.1)
+
+# order by padj
+> resOrdered <- res[order(res$padj),]
+
+
+# log transform data
+> rld <- rlog(dds, blind=F)
+> plotPCA(rld)  # add intgroup=c("condition", "batch") to add separate colors for batch
+
+
+# plot normalized counts for a gene
+> plotCounts(dds, gene='Tnf')
+
+
+# try it without "batch" in design
+> dds3 <- DESeqDataSetFromMatrix(countData=tab, colData=mat, design= ~condition)
+> dds3$condition <- relevel(dds3$condition, ref="Control")
+> dds3 <- DESeq(dds3)
+> res3 <- results(dds3)
+> rld3 <- rlog(dds3, blind=F)
+> plotPCA(rld3)
+# PCA plot looks the same as previous -- i.e. including "batch" into design
+#   does not improve things, but maybe they didn't need improving after all
+#   -- similar to conclusion with edgeR
+
+
+#####################################################################
+
+// looking at outlier AOM-DSS_3 (C36):
+// how many genes have expression far higher in C36 than the other samples?
+$ python diff.py
+// 126 genes (gene_list.txt)
+Sox17 Prex2 Slco5a1 Sbspon Il1rl1 Slc9a4 Fn1 Prss56 Gpc1 Inhbb Itln1 Cd244 Prox1 Arg1 Spock2 Nts \
+Lyz1 Msrb3 Wif1 Gdf11 Adcy1 Alox12 Alox15 Nxn Hoxb7 Hoxb6 Hoxb5 Hoxb3 Igfbp4 Krt36 Nptx1 Notum Syt16 \
+Tubb2b Lect2 Tgfbi Irx4 Cadps Tnfrsf19 Gulo Osr2 Tnfrsf11b Slc38a4 Krt6a Krt4 Slc51a Robo1 Prr18 \
+Thbs2 Tubb4a Ltbp1 Nrxn1 Dsg4 Apcdd1 Onecut2 Pnliprp1 Pnliprp2 Ccdc3 Cubn Aif1l Lcn2 Mvb12b Tgm2 \
+Nbea Sis Ugt8a Cfi Dkk2 Npnt Grin3a Slc30a2 Padi4 Atg9b Psapl1 Pcdh7 Limch1 Rasl11b Alb Afp Cxcl5 \
+Prkg2 Hspb8 Tesc Tbx3 Ptprz1 Ptn Svopl 5730457N03Rik Wipf3 Tacstd2 St3gal5 8430408G22Rik Mgp Cadm4 \
+Saa3 Ptpn5 Cers3 Art2a-ps Dkk3 Htra1 Cpxm2 Ifitm1 Ifitm3 Ctxn1 Defb37 Gm15284 Defa22 Plat Zmat4 Kcnu1 \
+Tex15 Pdgfrl Nkd1 Mt4 Cdh13 Fam89a Mmp13 Mmp10 Mmp7 Bmper Fxyd6 Stra6 Sema3f Rbms3 Cited1 Rai2
+
+
+// how many genes have expresson higher in *any* one sample than the others?
+// answer: 3 -- P2ry12 higher in AOM-DSS-Cur_3; Cym and P2ry10 higher in AOM-DSS_2
+
+
+// going back to cummeRbund to plot heatmap of FPKMs for these 126 genes
+// in ~/RNAseq3/fastq/cuffdiff_dedup2/:
+> library(cummeRbund)
+> cuff <- readCufflinks()
+> gene_list <- scan('../../deseq2/gene_list.txt', what=character(), sep=' ')
+> myGenes <- getGenes(cuff, gene_list)
+
+> pdf("heatmap1.pdf")
+> h <- csHeatmap(myGenes, heatscale=c(low='black', high='green'), replicates=T, fullnames=F)
+> h + theme(axis.text.y=element_text(size=4))
+> dev.off()
+
+> pdf("heatmap2.pdf")
+> h <- csHeatmap(myGenes, heatscale=c(low='black', high='green'), fullnames=F)
+> h + theme(axis.text.y=element_text(size=4))
+> dev.off()
+
+
+#####################################################################
+
+5.3
+How can I get unfiltered DESeq results?
+Users can obtain unfiltered GLM results, i.e.  without outlier removal or independent filtering with the following
+call:
+dds <- DESeq(dds, minReplicatesForReplace=Inf)
+res <- results(dds, cooksCutoff=FALSE, independentFiltering=FALSE)
+In this case, the only p-values set to NA
+are those from genes with all counts equal to zero.
+
