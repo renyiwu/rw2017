@@ -6,8 +6,11 @@
 # source("https://bioconductor.org/biocLite.R")
 # biocLite("GenomicFeatures")
 # biocLite("ChIPseeker")
+#biocLite("matrixStats")
+biocLite("TxDb.Hsapiens.UCSC.hg19.knownGene")
+
 library(GenomicFeatures)
-txdb <- makeTxDbFromGFF('/path/to/your/gtf/file/Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Annotation/Genes/genes.gtf') #, format='gtf', organism='Mus musculus')
+txdb <- makeTxDbFromGFF('Genes/genes.gtf', format='gtf', organism='Mus musculus')
 library(ChIPseeker)
 peak <- readPeakFile('results.csv') #results.csv is the output of DMRfinder.r 
 peakAnno <- annotatePeak(peak, TxDb=txdb)
@@ -20,7 +23,7 @@ peak2$distance <- peakAnno@anno$distanceToTSS
 write.table(peak2, 'results_anno.csv', sep='\t', quote=T, row.names=F) #Use "quote=T" to avoid format issues.
 
 #2, if input file has only combined counts of all groups, i.e., output of Combine_CpG.py, use this script:
-com1 <- read.table("data/combined.csv", header = T, sep = "\t")
+com1 <- read.table("data/shan_methyl/jb6_combined.csv", header = T, sep = "\t")
 com1 <- com1[com1$chr!="chrM",] #remove chromosome M, required.
 com1$S1.mu <- com1$S1.X/com1$S1.N 
 com1$S2.mu <- com1$S2.X/com1$S2.N
@@ -48,5 +51,7 @@ peak2 <- read.table('data/combined-M.csv', sep = "\t", header=T)
 peak2$gene <- peakAnno@anno$geneId
 peak2$feature <- peakAnno@anno$annotation
 peak2$distance <- peakAnno@anno$distanceToTSS
+peak2$geneLenth <- peakAnno@anno$geneLength
+peak2$geneStrand <- peakAnno@anno$geneStrand
 #Save output file.
-write.table(peak2, 'data/combined_anno.csv', sep='\t', quote=T, row.names=F) #Use "quote=T" to avoid format issues.
+write.table(peak2, 'data/combined_anno_2.csv', sep='\t', quote=T, row.names=F) #Use "quote=T" to avoid format issues.

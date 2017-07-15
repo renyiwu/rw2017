@@ -23,15 +23,15 @@ getwd() # to confirm wd
 # without turning them into statistical factors
 
 # Load counts data from a tab separated values file----
-dt1 <- read.table("combraw.count",
+dt1 <- read.table("data/John/combraw.count",
                   sep = "\t",
                   header = TRUE,
                   stringsAsFactors = FALSE)
 
 # Rename the samples
-colnames(dt1)[7:14] <- paste("DR", 
-                             1:8, 
-                             sep = "")
+colnames(dt1)[7:24] <- c("C1", "C2", "C26", "C29", "C42", "C46", "C20", "C14", "C15", "C19","C34", "C40", "C33", "C36", "C54", "C60", "C55", "C59") #paste("DR", 
+                             # 1:8, 
+                             # sep = "")
 
 # Part I: Run a single model----
 # Specify treatment groups

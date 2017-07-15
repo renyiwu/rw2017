@@ -1,6 +1,7 @@
 ##DESeq2 for gene express. (originally by John)
 #Renyi W. 2017-7-13
 library(DESeq2)
+#
 # load matrix of read counts
 tab <- read.csv("data/John/comb.count", sep="\t", row.names="Symbol")
 # create sample matrix
@@ -9,15 +10,15 @@ mat <- matrix(c(rep("Control_8", 2), rep("AOM_DSS_8", 2), rep("AOM_DSS_Cur_8", 2
   0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1), nrow=18, ncol=2)
 colnames(mat) <- c("condition", "batch")
 row.names(mat) <- colnames(tab[-1])
-
-# analyze just 18 week samples
+# analyze just 18 week samples AND without C36, an outlier.
 tab_18 <- tab[,c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C54', 'C60', 'C55', 'C59')]
-  # alternative:
-  # tab_18 <- subset(tab, select=c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C36', 'C54', 'C60', 'C55', 'C59'))
+# alternative:
+# tab_18 <- subset(tab, select=c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C36', 'C54', 'C60', 'C55', 'C59'))
 #tab_18$C36 <- NULL  # remove outlier -- see below
 mat_18 <- mat[c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C54', 'C60', 'C55', 'C59'),]
 dds_18 <- DESeqDataSetFromMatrix(countData=tab_18, colData=mat_18, design= ~ batch + condition)
 dds_18$condition <- relevel(dds_18$condition, ref="Control_18")
+dds_18$
 # filter for genes with at least one count in at least two samples:
 dds_18 <- dds_18[ rowSums(counts(dds_18) >= 1) >= 2, ]  # down to 17979 genes
 dds_18 <- DESeq(dds_18)
@@ -25,14 +26,113 @@ dds_18 <- DESeq(dds_18)
 res1 <- results(dds_18,contrast=c("condition", "AOM_DSS_Cur_18", "Control_18"))  # equivalent to results(dds, contrast=c("condition", "AOM-DSS-Cur", "Control"))
 res2 <- results(dds_18, contrast=c("condition", "AOM_DSS_18", "Control_18"))
 res3 <- results(dds_18, contrast=c("condition", "AOM_DSS_Cur_18", "AOM_DSS_18"))
-
-# subset results matrices to FDR < 10%, sort by log2FC, and write to file
-> resSig <- subset(res, padj < 0.1)
-> resSig <- resSig[order(resSig$log2FoldChange), ]
+#
+# Optional, subset results matrices to FDR < 10%, sort by log2FC, and write to file
+#resSig <- subset(res, padj < 0.1)
+#resSig <- resSig[order(resSig$log2FoldChange), ]
 write.table(res1, file="data/John/AOM-DSS-Cur_Control.csv", sep="\t", quote=F, col.names=NA)
 write.table(res2, file="data/John/AOM-DSS_Control.csv", sep="\t", quote=F, col.names=NA)
 write.table(res3, file="data/John/AOM-DSS-Cur_AOM-DSS.csv", sep="\t", quote=F, col.names=NA)
-# repeat for res2, res3
+#
+#
+#
+#get FKPM data
+tab <- read.csv("data/John/comb.count", sep="\t", row.names="Symbol")
+# create sample matrix
+mat <- matrix(c(rep("Control_8", 2), rep("AOM_DSS_8", 2), rep("AOM_DSS_Cur_8", 2),
+                rep("Control_18", 4), rep("AOM_DSS_18", 4), rep("AOM_DSS_Cur_18", 4),
+                0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1), nrow=18, ncol=2)
+colnames(mat) <- c("condition", "batch")
+row.names(mat) <- colnames(tab[-1]) # "-1" means not including the first entry.
+tab_18 <- tab[,c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C36', 'C54', 'C60', 'C55', 'C59')]
+mat_18 <- mat[c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C36', 'C54', 'C60', 'C55', 'C59'),]
+
+dds_18 <- DESeqDataSetFromMatrix(countData=tab_18, colData=mat_18, design= ~ batch + condition)
+# to get FPKM values, need transcript lengths
+mcols(dds_18)$basepairs <- tab$Length  # 'Length' column of comb.count (produced by convert4.py)
+dds_18$condition <- relevel(dds_18$condition, ref="Control_18")
+dds_18 <- DESeq(dds_18)
+write.table(fpkm(dds_18), file="data/John/samples_18_fpkm_all.csv", sep="\t", quote=F, col.names=NA)
+#
+#
+#
+#####################
+#PCA of 18 weeks samples.
+#to find outlier?
+#####################
+#
+#
+tab <- read.csv("data/John/comb.count", sep="\t", row.names="Symbol")
+# create sample matrix
+mat <- matrix(c(rep("Control_8", 2), rep("AOM_DSS_8", 2), rep("AOM_DSS_Cur_8", 2),
+                rep("Control_18", 4), rep("AOM_DSS_18", 4), rep("AOM_DSS_Cur_18", 4),
+                0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1), nrow=18, ncol=2)
+colnames(mat) <- c("condition", "batch")
+row.names(mat) <- colnames(tab[-1])
+# analyze just 18 week samples AND without C36, an outlier.
+tab_18 <- tab[,c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C33', 'C54', 'C60', 'C55', 'C59')]
+# alternative:
+# tab_18 <- subset(tab, select=c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C36', 'C54', 'C60', 'C55', 'C59'))
+#tab_18$C36 <- NULL  # remove outlier -- see below
+mat_18 <- mat[c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C36', 'C54', 'C60', 'C55', 'C59'),]
+#Optional. add another column to mat_18, namely Sample.
+mat_18 <- cbind(mat_18, Sample=c('C20', 'C14', 'C15', 'C19', 'C34', 'C40', 'C33', 'C36', 'C54', 'C60', 'C55', 'C59'))
+#change condition description.
+mat_18[,1] <- matrix(c(rep("Control",4), rep("AOM+DSS",4), rep("AOM+DSS+Cur", 4)))
+dds_18 <- DESeqDataSetFromMatrix(countData=tab_18, colData=mat_18, design= ~ batch + condition)
+dds_18$condition <- relevel(dds_18$condition, ref="Control")
+dds_18
+#Optional. filter for genes with at least one count in at least two samples:
+#dds_18 <- dds_18[ rowSums(counts(dds_18) >= 1) >= 2, ]  # down to 17979 genes
+#main function
+dds_18 <- DESeq(dds_18)
+#
+#log transformation of dds_18
+rld <- rlog(dds_18, blind=F)
+plotPCA(rld)
+#or
+pcad <- plotPCA(rld) #, returnData = T)
+#or
+pcad2 <- plotPCA(rld, returnData = T)
+#or
+plotPCA(rld, intgroup = c("condition","Sample"))
+#or
+plotMA(dds_18)#, ylim=c(-4,4))
+#
+#export to file
+tiff(filename = "data/John/PCA_18wks_400x300.tiff", 
+     width = 400, height = 300, units = "px", pointsize = 12,
+     compression = "none",type = "windows",antialias = "none")
+plotPCA(rld,
+        ntop = 500,
+        intgroup = c("condition"))
+dev.off()
+pwd()
+
+  #
+#
+# bmp(filename = "Rplot%03d.bmp",
+#     width = 480, height = 480, units = "px", pointsize = 12,
+#     bg = "white", res = NA, ...,
+#     type = c("cairo", "Xlib", "quartz"), antialias)
+# 
+# jpeg(filename = "Rplot%03d.jpeg",
+#      width = 480, height = 480, units = "px", pointsize = 12,
+#      quality = 75,
+#      bg = "white", res = NA, ...,
+#      type = c("cairo", "Xlib", "quartz"), antialias)
+# 
+# png(filename = "Rplot%03d.png",
+#     width = 480, height = 480, units = "px", pointsize = 12,
+#     bg = "white",  res = NA, ...,
+#     type = c("cairo", "cairo-png", "Xlib", "quartz"), antialias)
+# 
+# tiff(filename = "Rplot%03d.tiff",
+#      width = 480, height = 480, units = "px", pointsize = 12,
+#      compression = c("none", "rle", "lzw", "jpeg", "zip", "lzw+p", "zip+p"),
+#      bg = "white", res = NA,  ...,
+#      type = c("cairo", "Xlib", "quartz"), antialias)
+
 
 # output files:
 # res -> resSig -> AOM-DSS-Cur_Control.csv
@@ -41,30 +141,30 @@ write.table(res3, file="data/John/AOM-DSS-Cur_AOM-DSS.csv", sep="\t", quote=F, c
 # NOTE: log2FoldChanges give 1st sample w.r.t 2nd --
 #   i.e. in AOM-DSS-Cur_Control.csv, log2FC < -1 => lower expression in AOM-DSS-Cur than Control
 
-> summary(res)
-out of 17979 with nonzero total read count
-adjusted p-value < 0.1
-LFC > 0 (up)     : 222, 1.2% 
-LFC < 0 (down)   : 381, 2.1% 
-outliers [1]     : 15, 0.083% 
-low counts [2]   : 3835, 21% 
-> sum(res$padj < 0.1, na.rm=T)
-[1] 603   # sum of 222 up and 381 down
-> summary(res2)
-LFC > 0 (up)     : 270, 1.5% 
-LFC < 0 (down)   : 309, 1.7% 
-> summary(res3)
-LFC > 0 (up)     : 421, 2.3% 
-LFC < 0 (down)   : 671, 3.7% 
+summary(res1)
+# out of 17979 with nonzero total read count
+# adjusted p-value < 0.1
+# LFC > 0 (up)     : 222, 1.2% 
+# LFC < 0 (down)   : 381, 2.1% 
+# outliers [1]     : 15, 0.083% 
+# low counts [2]   : 3835, 21% 
+# sum(res$padj < 0.1, na.rm=T)
+# # [1] 603   # sum of 222 up and 381 down
+# > summary(res2)
+# LFC > 0 (up)     : 270, 1.5% 
+# LFC < 0 (down)   : 309, 1.7% 
+# > summary(res3)
+# LFC > 0 (up)     : 421, 2.3% 
+# LFC < 0 (down)   : 671, 3.7% 
 # NOTE: no filtering based on log2FC; numbers are quite low though:
-> sum(resSig$log2FoldChange < -1)
-[1] 11
-> sum(resSig$log2FoldChange > 1)
-[1] 25
+# > sum(resSig$log2FoldChange < -1)
+# [1] 11
+# > sum(resSig$log2FoldChange > 1)
+# [1] 25
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////
+#/////////////////////////////////////////////////////////////////////////////////////
 
 # how to get FPKM values
 

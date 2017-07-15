@@ -1,10 +1,13 @@
 #Hierarchical clustering
 #Renyi Wu 6/5/2017
 library(ggplot2)
-require(data.table)
+require(data.table) #for fread function. Not required for read.table
 ##read file
-dt <- fread("data/Methyl-seq-short.csv")
-dt
+dt <- fread("data/Methyl-seq-short.csv") 
+dt1 <-read.table("data/Methyl-seq-short.csv", sep = ",", header = T)
+dt2 <-read.table("data/Methyl-seq-short.csv") #NOt working on files exported with Excel (csv, coma seperated values)
+dt4 <-read.table("data/John/samples_18_fpkm_all.csv")
+dt3 <-fread("data/John/samples_18_fpkm_all.csv")
 ## remove rows with NAs
 dt2 <- na.omit(dt)
 ## Alternative ways:
@@ -21,14 +24,14 @@ dev.off()
 plot(h, xlab = "sample", asp = 2)
 # Parameters for plotting
 plot(h, hang = -1, xlab = "sample", ylab = "distance", cex = 1, lwd = 1, col = "black")
-rect.hclust(h, 2)
+rect.hclust(h, 3)
 
 #Other ways to show full lenth  of y axis.
 hc <- h
 plot(hc)
 plot(hc, ylim = c(0,1))
 plot(as.dendrogram(hc))
-plot(as.dendrogram(hc), ylim = c(0,20),xlim = c(1,8), xlab = "sample", ylab = "distance")
+plot(as.dendrogram(hc), ylim = c(0,9000),xlim = c(1,15), xlab = "sample", ylab = "distance")
 # Define nodePar
 nodePar <- list(lab.cex = 1.2, pch = c(NA, 19), 
                 cex = 1.2, col = "black")

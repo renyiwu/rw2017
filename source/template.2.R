@@ -15,7 +15,7 @@ mat
 ### Use the gene symbols as rowname
 rownames(mat) <- df$gene
 mat
-# heatmap.2(mat,col=redgreen(255),dendrogram = "row",Colv = FALSE,hclustfun = hclust)
+ #heatmap.2(mat,col=redgreen(255),dendrogram = "row",Colv = FALSE,hclustfun = hclust)
 #set output format
 # png(filename = "data/heatmap/heatmap1.png",
 #     height = 5,
@@ -38,7 +38,7 @@ heatmap.2(mat,col=bluered(255),dendrogram = "none",Colv = FALSE,
           lmat= lmat,  lwid = c(0,4), lhei = c(4,4,4))
 dev.off()
 ##with key and labels
-heatmap.2(mat,col=redgreen(255),dendrogram = "none",Colv = FALSE,Rowv = FALSE,
+heatmap.2(mat,col=bluered(255),dendrogram = "none",Colv = FALSE,Rowv = FALSE,
           trace = "none",
           density.info = "none", key.title = "expression", keysize = 2, key.xlab =NA)
 
