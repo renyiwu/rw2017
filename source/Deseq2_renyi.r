@@ -1,9 +1,45 @@
 ##DESeq2 for gene express. (originally by John)
 #Renyi W. 2017-7-13
 library(DESeq2)
+library(data.table)
 #
 # load matrix of read counts
-tab <- read.csv("data/John/comb.count", sep="\t", row.names="Symbol")
+tab <- fread("data/shan_rna/RW_all_primary.dedup.csv")
+tab <- data.frame(tab)
+#tab1 <- read.table("data/shan_rna/RW_all_primary.dedup.csv", sep = "\t", row.names = "Geneid")
+#tab2 <- read.csv("data/shan_rna/RW_all_primary.dedup.csv")#, header = T, sep = "\t", row.names = "Geneid")
+rownames(tab) <- tab$Geneid
+tab <- tab[,-(1:5)] #remove columns 1 to 5. Other approaches may also work.
+#Assign column names
+colnames(tab) <- c("length", paste("RW",1:7, sep = ""))
+# create sample matrix
+mat <- matrix(paste("S",1:7, sep = ""), nrow = 7)
+colnames(mat) <- "condition"
+mat
+rownames(mat) <- colnames(tab[-1])
+mat_7 <- mat
+dds <- DESeqDataSetFromMatrix(countData=tab_7, colData=mat_7, design= ~ condition)
+dds$condition <- relevel(dds$condition, ref="S1")
+# filter for genes with at least one count in at least two samples:
+dds <- dds[ rowSums(counts(dds) >= 1) >= 2, ]  # down to 17979 genes
+#Run deseq
+dds_7 <- DESeq(dds)
+# pairwise comparisons
+res1 <- results(dds_7,contrast=c("condition", "S2", "S1"))
+#write out
+write.table(res1, file="data/shan_rna/S2_S1.csv", sep="\t", quote=T, col.names=NA)
+#
+#
+#
+#
+#
+#
+#
+#
+#
+# load matrix of read counts
+tabj <- read.csv("data/John/comb.count", sep="\t", row.names="Symbol")
+
 # create sample matrix
 mat <- matrix(c(rep("Control_8", 2), rep("AOM_DSS_8", 2), rep("AOM_DSS_Cur_8", 2),
   rep("Control_18", 4), rep("AOM_DSS_18", 4), rep("AOM_DSS_Cur_18", 4),
