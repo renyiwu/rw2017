@@ -9,14 +9,17 @@ dt1 <- na.omit(dt1)
 #              dt1$AOMDSSCur_18.mu<0.75,]
 dt2 <- dt1[dt1$CpG>=12,]
 dt3 <- dt2[,6:8]
-#parlw <- par(lwd = 3)
+#backup parameters
+#par.b <- par()
+#restore par.
+#par(par.b)
 boxplot(dt3,border = c("black"),
         at = c(1,3,5), # To make a gaps between groups.This is optional.
         names = c("Control", "AOM+DSS", "AOM+DSS+Cur"),
         col = c("red", "green", "blue"),
-        ylim = c(0,1.1),par(lwd = 2, cex.lab = 1.5, cex.axis = 1.4),
+        ylim = c(0,1.3),par(lwd = 2, cex.lab = 1.5, cex.axis = 1.4),
         ylab = "Methylation ratio")
-pas <- par()  #View current setting
+pas <- par()  #back current setting
 tiff(filename = "data/boxplot/18wks.tiff",
     width = 400, height = 300)
 png(filename = "data/boxplot/18wks.png",
