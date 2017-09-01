@@ -9,6 +9,9 @@ tab <- data.frame(tab)
 #tab1 <- read.table("data/shan_rna/RW_all_primary.dedup.csv", sep = "\t", row.names = "Geneid")
 #tab2 <- read.csv("data/shan_rna/RW_all_primary.dedup.csv")#, header = T, sep = "\t", row.names = "Geneid")
 rownames(tab) <- tab$Geneid
+
+#Or load file with this command:
+tab <- read.table("data/rna_8wks/RNA_8wks_primary.dedup.csv", header = T, row.names = "Geneid")
 tab <- tab[,-(1:5)] #remove columns 1 to 5. Other approaches may also work.
 #Assign column names
 colnames(tab) <- c("length", paste("RW",1:7, sep = ""))
