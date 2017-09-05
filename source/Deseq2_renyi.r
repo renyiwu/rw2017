@@ -9,25 +9,26 @@ tab <- data.frame(tab)
 #tab1 <- read.table("data/shan_rna/RW_all_primary.dedup.csv", sep = "\t", row.names = "Geneid")
 #tab2 <- read.csv("data/shan_rna/RW_all_primary.dedup.csv")#, header = T, sep = "\t", row.names = "Geneid")
 rownames(tab) <- tab$Geneid
-tab <- tab[,-(1:5)] #remove columns 1 to 5. Other approaches may also work.
+tab <- tab[,-(1:5)] #remove columns 1 to 5. Other approaches may also work. tab[,1:5] <- NULL
 #Assign column names
 colnames(tab) <- c("length", paste("RW",1:7, sep = ""))
+tab_7 = tab[-1]
 # create sample matrix
-mat <- matrix(paste("S",1:7, sep = ""), nrow = 7)
+mat <- matrix(paste("S",1:7, sep = ""), nrow = 7, ncol = 1, byrow = F) #byrow default to F, meaning top-bottom then left-right
 colnames(mat) <- "condition"
 mat
 rownames(mat) <- colnames(tab[-1])
 mat_7 <- mat
 dds <- DESeqDataSetFromMatrix(countData=tab_7, colData=mat_7, design= ~ condition)
-dds$condition <- relevel(dds$condition, ref="S1")
+dds$condition <- relevel(dds$condition, ref="S4")
 # filter for genes with at least one count in at least two samples:
 dds <- dds[ rowSums(counts(dds) >= 1) >= 2, ]  # down to 17979 genes
 #Run deseq
 dds_7 <- DESeq(dds)
 # pairwise comparisons
-res1 <- results(dds_7,contrast=c("condition", "S2", "S1"))
+res1 <- results(dds_7,contrast=c("condition", "S6", "S4"))
 #write out
-write.table(res1, file="data/shan_rna/S2_S1.csv", sep="\t", quote=T, col.names=NA)
+write.table(res1, file="data/shan_rna/S6-S4_mITC-TPA_l4.csv", sep="\t", quote=T, col.names=NA)
 #
 #
 #
@@ -234,7 +235,7 @@ write.table(fpkm_8, file='samples_8_fpkm.csv', sep='\t', quote=F, col.names=NA)
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
+#////////////////////////////////////////////////////////////////////////////////////////////
 
 
 # alternative for making list of transcript lengths: https://www.biostars.org/p/83901/
