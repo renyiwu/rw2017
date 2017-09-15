@@ -1,5 +1,6 @@
 #Draw boxplot
 #R Wu. 2017-7-15
+#Davit 2017-9-8
 require(data.table)
 dt1 <- fread("data/methyl-seq 18weeks Renyi.csv")
 dt1 <- na.omit(dt1)
@@ -17,7 +18,7 @@ dt4 <- log2(dt3)
 #restore par.
 #par(par.b)
 boxplot(dt4)
-,
+boxplot(dt4,
         border = c("black"),
         at = c(1,3,5), # To make a gaps between groups.This is optional.
         names = c("Control", "AOM+DSS", "AOM+DSS+Cur"),
@@ -41,45 +42,65 @@ dt4.1$Treatment <- factor(dt4.1$Treatment,
 
 m1 <- lm(log2.meth.rat ~ Treatment,
          data = dt4.1)
+m2 <- aov(log2.meth.rat ~ Treatment,
+         data = dt4.1)
 summary(m1)
+summary(m2)
+# > summary(m1)
+# 
+# Call:
+#   lm(formula = log2.meth.rat ~ Treatment, data = dt4.1)
+# 
+# Residuals:
+#   Min      1Q  Median      3Q     Max 
+# -1.4523 -0.5244 -0.2470  0.4526  1.3978 
+# 
+# Coefficients:
+#   Estimate Std. Error  t value Pr(>|t|)    
+# (Intercept)              -1.381092   0.003292 -419.518  < 2e-16 ***
+#   TreatmentControl_18.mu   -0.018142   0.004656   -3.897 9.75e-05 ***
+#   TreatmentAOMDSSCur_18.mu -0.017892   0.004656   -3.843 0.000122 ***
+#   ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 0.7062 on 138042 degrees of freedom
+# Multiple R-squared:  0.0001447,	Adjusted R-squared:  0.0001302 
+# F-statistic: 9.986 on 2 and 138042 DF,  p-value: 4.61e-05
 anova(m1)
 
 require(multcomp)
 m1.1 <- glht(m1,
              linfct = mcp(Treatment = "Dunnett"))
 summary(m1.1)
+# > summary(m1.1)
+# 
+# Simultaneous Tests for General Linear Hypotheses
+# 
+# Multiple Comparisons of Means: Dunnett Contrasts
+# 
+# 
+# Fit: lm(formula = log2.meth.rat ~ Treatment, data = dt4.1)
+# 
+# Linear Hypotheses:
+#   Estimate Std. Error t value Pr(>|t|)    
+# Control_18.mu - AOMDSS_18.mu == 0   -0.018142   0.004656  -3.897 0.000193 ***
+#   AOMDSSCur_18.mu - AOMDSS_18.mu == 0 -0.017892   0.004656  -3.843 0.000241 ***
+#   ---
+#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# (Adjusted p values reported -- single-step method)
+#
 
 # Boxplot
 require(ggplot2)
 p1 <- ggplot(data = dt4.1) +
   geom_boxplot(aes(x = Treatment,
-                   y = log2.meth.rat)) +
-  geom_point(aes(x = Treatment,
-                 y = log2.meth.rat),
-             size = 1,
-             alpha = 0.6,
-             position = position_dodge(0.3)) + 
+                   y = log2.meth.rat,
+                   fill = Treatment)) +
   scale_x_discrete("Treatment") + 
-  scale_y_continuous("Readout") + 
-  ggtitle("Boxplot") +
-  facet_wrap(~ read,
-             nrow = 1) +
-
-
-  geom_line(aes(x = trt,
-                y = readout,
-                group = id,
-                colour = id),
-            size = 2,
-            alpha = 0.6,
-            position = position_dodge(0.3)) + 
-  guides(colour = guide_legend(title = "ID",
-                               title.position = "top",
-                               ncol = 1)) +
+  scale_y_continuous("Log2(Methylation Ratio)") + 
+  ggtitle("Change in Methylation") +
   theme(plot.title = element_text(hjust = 0.5),
-        legend.position = "left",
-        axis.text.x = element_text(angle = 45,
-                                   hjust = 1))
+        legend.position = "none")
 print(p1)
 
 

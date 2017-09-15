@@ -56,6 +56,7 @@ dt7$group <- c(rep("group1", 4), rep("group2", 4), rep("group3", 4))
 dt7$sample <- rownames(dt7)
 prcomp(dt6)
 autoplot(prcomp(dt6), data = dt7, colour = 'sample')
+#or
 autoplot(prcomp(dt6), data = dt7, colour = 'group')
 
 # dt2 <- dt1[dt1$CpG>=12 &

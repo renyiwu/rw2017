@@ -10,22 +10,21 @@ dt1 <- na.omit(dt1)
 dt2 <- dt1[dt1$CpG>=12,] #46015 DMRs remaining
 dt3 <- dt2[,6:8]
 
-dt4 <- log2(dt3)
+dt4 <- log10(dt3)
 
 #backup parameters
 #par.b <- par()
 #restore par.
 #par(par.b)
-boxplot(dt4)
-,
+boxplot(dt4,
         border = c("black"),
         at = c(1,3,5), # To make a gaps between groups.This is optional.
-        names = c("Control", "AOM+DSS", "AOM+DSS+Cur"),
+        names = c("Control", "AOM+DSS", "AOM+DSS+Cur."),
         col = c("red", "green", "blue"),
-        ylim = c(0,1.3),par(lwd = 2, cex.lab = 1.5, cex.axis = 1.4),
-        ylab = "Methylation ratio")
+        ylim = c(-3.5,0.5),par(lwd = 2, cex.lab = 1.5, cex.axis = 1.4),
+        ylab = expression(log[10]~Methylation~ratio))
 pas <- par()  #back current setting
-tiff(filename = "data/boxplot/18wks.tiff",
+tiff(filename = "data/boxplot/18wks_log10.tiff",
     width = 400, height = 300)
 png(filename = "data/boxplot/18wks.png",
     width = 400, height = 300, bg="transparent")
@@ -81,6 +80,7 @@ p1 <- ggplot(data = dt4.1) +
         axis.text.x = element_text(angle = 45,
                                    hjust = 1))
 print(p1)
+aov()
 
 
 
@@ -143,3 +143,32 @@ t2p <- t.test(dt3$AOMDSSCur_18.mu,dt3$AOMDSS_18.mu, paired = T)
 # sample estimates:
 # mean of the differences 
 #            -0.000378227 
+
+t1p <- t.test(dt4$Control_18.mu,dt4$AOMDSS_18.mu, paired = T)
+# > t1p
+# 
+# Paired t-test
+# 
+# data:  dt4$Control_18.mu and dt4$AOMDSS_18.mu
+# t = -15.993, df = 46014, p-value < 2.2e-16
+# alternative hypothesis: true difference in means is not equal to 0
+# 95 percent confidence interval:
+#   -0.02036552 -0.01591876
+# sample estimates:
+#   mean of the differences 
+# -0.01814214 
+
+t2p <- t.test(dt4$AOMDSSCur_18.mu,dt4$AOMDSS_18.mu, paired = T)
+
+# > t2p
+# 
+# Paired t-test
+# 
+# data:  dt4$AOMDSSCur_18.mu and dt4$AOMDSS_18.mu
+# t = -15.797, df = 46014, p-value < 2.2e-16
+# alternative hypothesis: true difference in means is not equal to 0
+# 95 percent confidence interval:
+#   -0.02011219 -0.01567226
+# sample estimates:
+#   mean of the differences 
+# -0.01789223 
