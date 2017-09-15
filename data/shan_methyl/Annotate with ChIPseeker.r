@@ -7,7 +7,7 @@
 # biocLite("GenomicFeatures")
 # biocLite("ChIPseeker")
 #biocLite("matrixStats")
-biocLite("TxDb.Hsapiens.UCSC.hg19.knownGene")
+#biocLite("TxDb.Hsapiens.UCSC.hg19.knownGene")
 
 library(GenomicFeatures)
 txdb <- makeTxDbFromGFF('Genes/genes.gtf', format='gtf', organism='Mus musculus')
