@@ -40,6 +40,8 @@ heatmap.2(mat,col=bluered(255),dendrogram = "none",Colv = FALSE,
           trace = "none",
           lmat= lmat,  lwid = c(0,4), lhei = c(4,4,4))
 heatmap.2(mat_f)
+
+
 dds$condition <- relevel(dds$condition, ref="S1")
 # filter for genes with at least one count in at least two samples:
 dds <- dds[ rowSums(counts(dds) >= 1) >= 2, ]  

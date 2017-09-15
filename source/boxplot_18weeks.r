@@ -7,13 +7,18 @@ dt1 <- na.omit(dt1)
 #              dt1$Control_18.mu<0.75 &
 #              dt1$AOMDSS_18.mu<0.75 &
 #              dt1$AOMDSSCur_18.mu<0.75,]
-dt2 <- dt1[dt1$CpG>=12,]
+dt2 <- dt1[dt1$CpG>=12,] #46015 DMRs remaining
 dt3 <- dt2[,6:8]
+
+dt4 <- log2(dt3)
+
 #backup parameters
 #par.b <- par()
 #restore par.
 #par(par.b)
-boxplot(dt3,border = c("black"),
+boxplot(dt4)
+,
+        border = c("black"),
         at = c(1,3,5), # To make a gaps between groups.This is optional.
         names = c("Control", "AOM+DSS", "AOM+DSS+Cur"),
         col = c("red", "green", "blue"),
@@ -25,6 +30,67 @@ tiff(filename = "data/boxplot/18wks.tiff",
 png(filename = "data/boxplot/18wks.png",
     width = 400, height = 300, bg="transparent")
 dev.off()
+
+dt4.1 <- melt.data.table(dt4,
+                        variable.name = "Treatment",
+                        value.name = "log2.meth.rat")
+dt4.1$Treatment <- factor(dt4.1$Treatment,
+                          levels = c("AOMDSS_18.mu",
+                                     "Control_18.mu",
+                                     "AOMDSSCur_18.mu"))
+
+m1 <- lm(log2.meth.rat ~ Treatment,
+         data = dt4.1)
+summary(m1)
+anova(m1)
+
+require(multcomp)
+m1.1 <- glht(m1,
+             linfct = mcp(Treatment = "Dunnett"))
+summary(m1.1)
+
+# Boxplot
+require(ggplot2)
+p1 <- ggplot(data = dt4.1) +
+  geom_boxplot(aes(x = Treatment,
+                   y = log2.meth.rat)) +
+  geom_point(aes(x = Treatment,
+                 y = log2.meth.rat),
+             size = 1,
+             alpha = 0.6,
+             position = position_dodge(0.3)) + 
+  scale_x_discrete("Treatment") + 
+  scale_y_continuous("Readout") + 
+  ggtitle("Boxplot") +
+  facet_wrap(~ read,
+             nrow = 1) +
+
+
+  geom_line(aes(x = trt,
+                y = readout,
+                group = id,
+                colour = id),
+            size = 2,
+            alpha = 0.6,
+            position = position_dodge(0.3)) + 
+  guides(colour = guide_legend(title = "ID",
+                               title.position = "top",
+                               ncol = 1)) +
+  theme(plot.title = element_text(hjust = 0.5),
+        legend.position = "left",
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
+print(p1)
+
+
+
+
+
+
+
+
+
+
 
 #
 t1 <- t.test(dt3$Control_18.mu,dt3$AOMDSS_18.mu)
