@@ -1,3 +1,5 @@
+source("https://bioconductor.org/biocLite.R")
+biocLite("DESeq2")
 library(DESeq2)
 library(data.table)
 library("gplots")
@@ -42,12 +44,12 @@ heatmap.2(mat,col=bluered(255),dendrogram = "none",Colv = FALSE,
 heatmap.2(mat_f)
 
 
-dds$condition <- relevel(dds$condition, ref="S1")
+dds$condition <- relevel(dds$condition, ref="S4")
 # filter for genes with at least one count in at least two samples:
 dds <- dds[ rowSums(counts(dds) >= 1) >= 2, ]  
 #Run deseq
 dds_7 <- DESeq(dds)
 # pairwise comparisons
-res1 <- results(dds_7,contrast=c("condition", "S2", "S1"))
+res1 <- results(dds_7,contrast=c("condition", "S2", "S4"))
 #write out
-write.table(res1, file="data/shan_rna/S2_S1.csv", sep="\t", quote=T, col.names=NA)
+write.table(res1, file="data/shan_rna/S2_S4_FX-TPA.csv", sep="\t", quote=T, col.names=NA)
