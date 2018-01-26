@@ -1,0 +1,25 @@
+S1: TPA_1, 10 ng/mL RW1 5-day
+S2: mITC, 2.5 uM 5-d
+S3: control, 7-d
+S4: TPA_0, 10 ng/mL 7-d
+S5: TPA + CA, 7.5 uM
+S6: TPA + FX, 6.25 uM
+S7: TPA + CDDO, 0.05 uM (50 nM).
+
+RNA-seq on JB6 cell samples by BGI in 2017.  Data exported from DEseq2 with count cut-off 5 for each gene in all groups. ie, only gene with 5 or more counts in all groups were kept.
+
+S4-S3
+log2FC -0.8 0.8 
+2028 left
+
+S2-S1
+log2FC -0.24 0.24 
+2040 left
+
+S2-S4
+log2FC -1.15 1.15
+2023 left
+
+S5-S4
+log2FC -0.26 0.26 
+2077 left
