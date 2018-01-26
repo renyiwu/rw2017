@@ -93,5 +93,5 @@ write.table(rpkm,
 
 
 #Tested on SOP-1163 Ubuntu 16.04
-#Renyi Wu
+#Renyi Wu and others
 #1-25-2018
