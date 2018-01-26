@@ -1,7 +1,0 @@
-cd "$(dirname "$0")"
-echo from cuffdiff
-echo $0
-mkdir -v "test"
-pwd
-cd test1
-pwd
