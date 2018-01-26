@@ -22,33 +22,22 @@ autoplot(prcomp(df), data = iris, colour = 'Species',
 autoplot(prcomp(df), scale = 0)
 iris
 #
+
+
+
 #start my own project here
 #This is just an example. Not real study design.
 require(data.table)
 dt1 <- fread("data/combined_CpG_all_John.csv")
+dt1 <- fread("data/david/mes13_featurecounts_122017.csv")
 dt1 <- na.omit(dt1)
-dt2 <- dt1[,1:4]
-dt2$C1 <- dt1$`C1-X`/dt1$`C1-N`
-dt2$C2 <- dt1$`C2-X`/dt1$`C2-N`
-dt2$C26 <- dt1$`C26-X`/dt1$`C26-N`
-dt2$C29 <- dt1$`C29-X`/dt1$`C29-N`
-dt2$C42 <- dt1$`C42-X`/dt1$`C42-N`
-dt2$C47 <- dt1$`C47-X`/dt1$`C47-N`
-dt2$C14 <- dt1$`C14-X`/dt1$`C14-N`
-dt2$C20 <- dt1$`C20-X`/dt1$`C20-N`
-dt2$C34 <- dt1$`C34-X`/dt1$`C34-N`
-dt2$C40 <- dt1$`C40-X`/dt1$`C40-N`
-dt2$C54 <- dt1$`C54-X`/dt1$`C54-N`
-dt2$C60 <- dt1$`C60-X`/dt1$`C60-N`
-dt2
-dt3 <- dt2[dt2$CpG>=5,]
-dt4 <- dt3[,5:16]
-dt4
-dt5 <- t(dt4)
+dt2 <- dt1[, c(1, 6:13)]
+
 # class(dt5)
 ncol(dt5)
-colnames(dt5)[1:123098] <- paste("DMR",1:123098, sep = "")
+colnames(dt2) <- C(geneid, length, paste("DMR",1:123098, sep = "")
 #or
+
 colnames(dt5)[1:ncol(dt5)] <- paste("DMR",1:ncol(dt5), sep = "")
 dt6 <- data.frame(dt5)
 dt7 <- dt6
