@@ -8,16 +8,17 @@
 # biocLite("edgeR")
 library(edgeR)
 dt <- read.table("data/RNA_JB6_Oct2017/RW_all_primary.dedup_hisat2_new.csv", header = T)#, row.names = "Geneid")
-dt <- dt[-(2:5)]
-colnames(dt) <- c("Geneid", "Length", paste("RW", 1:7, sep = ""))
+dt <- dt[-(2:5)] #remove unneeded columns.
+colnames(dt) <- c("Geneid", "Length", paste("RW", 1:7, sep = "")) #Change as needed.
 groups <- c("TPA1", "mITC", "Control", "TPA", "CA", "FX", "CDDO") #Need to match the order of samples in the above dataset
 y <- DGEList(counts = dt[3:9], group = relevel(factor(groups),"Control"), #set "Control" as the reference group.
              genes = dt[1:2]) #data.frame(geneid = rownames(c), Lengh = c$Length))
-y <- y[rowSums(cpm(y)>10) >= 2,] # Only keep genes that have more than 10 counts in at least 2 groups.
+#y <- y[rowSums(cpm(y)>10) >= 2,] # Only keep genes with CPM (counts per million reads) values greater than 10 in at least 2 groups.Arbitrary setting.
+y <- y[rowSums(y$counts>3) >= 2,]# Only keep genes that have more than 3 counts in at least 2 groups. Arbitrary setting.
 y$samples$lib.size <- colSums(y$counts) #This step is required if filtering was performed with the last command.
-y <- calcNormFactors(y)
+y <- calcNormFactors(y) #Not required but suggested.
 # Define design
-design <- model.matrix(~0+y$samples$group)
+design <- model.matrix(~0+y$samples$group) #Leading "~0" is for ... check the manual!
 colnames(design) <- levels(y$samples$group)
 
 y1 <- y
@@ -28,8 +29,8 @@ y1 <- estimateDisp(y1[y1$genes$Geneid == housekeeping,], design = design1, trend
 y$common.dispersion <- y1$common.dispersion
 
 #1.1 Exact test
-et <- exactTest(y, pair = c("TPA1", "mITC" ))#, dispersion = bcv^2)
-write.table(topTags(et, n = nrow(y$counts), sort.by = "none"),
+et <- exactTest(y, pair = c("TPA1", "mITC" )) # Need to be two groups at a time.
+write.table(topTags(et, n = nrow(y$counts), sort.by = "none"), # may sort.by "Pvalue".
             file = "data/RNA_JB6_Oct2017/analysis_Jan2018/1-25/mITC-TPA1_housekeeping_exact-test.csv",
             sep = "\t", col.names = T, row.names = F) 
  
@@ -53,7 +54,8 @@ colnames(dt) <- c("Geneid", "Length", paste("RW", 1:7, sep = ""))
 groups <- c("TPA1", "mITC", "Control", "TPA", "CA", "FX", "CDDO") #Need to match the order of samples in the above dataset
 y <- DGEList(counts = dt[3:9], group = relevel(factor(groups),"Control"), #set "Control" as the reference group.
              genes = dt[1:2]) #data.frame(geneid = rownames(c), Lengh = c$Length))
-y <- y[rowSums(cpm(y)>10) >= 2,] # Only keep genes that have more than 10 counts in at least 2 groups.
+#y <- y[rowSums(cpm(y)>10) >= 2,] # Only keep genes with CPM (counts per million reads) values greater than 10 in at least 2 groups.Arbitrary setting.
+y <- y[rowSums(y$counts>3) >= 2,]# Only keep genes that have more than 3 counts in at least 2 groups. Arbitrary setting.
 y$samples$lib.size <- colSums(y$counts) #This step is required if filtering was performed with the last command.
 y <- calcNormFactors(y)
 # Define design
@@ -83,12 +85,22 @@ write.table(topTags(gt, n = nrow(y$counts), sort.by = "none"),
 
 
 ## Get RPKM values
+# source("http://bioconductor.org/biocLite.R")
+# biocLite("edgeR")
+library(edgeR)
+dt <- read.table("data/RNA_JB6_Oct2017/RW_all_primary.dedup_hisat2_new.csv", header = T)#, row.names = "Geneid")
+dt <- dt[-(2:5)]
+colnames(dt) <- c("Geneid", "Length", paste("RW", 1:7, sep = ""))
+groups <- c("TPA1", "mITC", "Control", "TPA", "CA", "FX", "CDDO") #Need to match the order of samples in the above dataset
+y <- DGEList(counts = dt[3:9], group = relevel(factor(groups),"Control"), #set "Control" as the reference group.
+             genes = dt[1:2]) #data.frame(geneid = rownames(c), Lengh = c$Length))
 
 rpkm <- data.frame(rpkm(y, y$genes$Length))
-rpkm <- cbind(Geneid = y$genes$Geneid, rpkm)
+rpkm <- cbind(Geneid = y$genes$Geneid, rpkm) #Use cbind to put "gene id" at the first column.
 write.table(rpkm,
             file = "data/RNA_JB6_Oct2017/analysis_Jan2018/1-25/RPKM.csv",
             sep = "\t", col.names = T, row.names = F) 
+
 
 
 
