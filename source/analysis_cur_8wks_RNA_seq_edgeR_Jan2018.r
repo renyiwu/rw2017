@@ -7,6 +7,7 @@ dt <- dt[-(2:5)]
 
 #Define groups (and batches)
 group <- factor(c("Con", "AOM_DSS", "AOM_DSS", "Con", "AOM_DSS_Cur", "AOM_DSS_Cur", "DSS", "DSS", "DSS_Cur", "DSS_Cur"))
+group <- relevel(group, ref = "Con")
 #> group
 # [1] Con         AOM_DSS     AOM_DSS     Con         AOM_DSS_Cur AOM_DSS_Cur DSS         DSS         DSS_Cur    
 # [10] DSS_Cur    
@@ -19,32 +20,15 @@ batch <- factor(c(rep("1",3), "2", rep("1", 6)))
 y <- DGEList(counts = dt[3:12], group = group, genes = dt[1:2])
 
 #Define design
-design <- model.matrix(~group+batch)
+
+#  design <- model.matrix(~group+batch) # This style works only with "coef" setting as in glmLRT(fit, coef = 2)
+# Or 
+design <- model.matrix(~0+group+batch) # This style works only with "contrast" setting as in glmLRT(fit, contrast = c(0, -1, 1, 0, 0, 0))
 rownames(design) <- colnames(dt[-(1:2)])
 # design <- model.matrix(~0+group+batch) ## Here the leading "0+" tells not to produce an "Intercept" group.
 # This method is not recommended if more than one variance is included in the model. Eg, groups, time points, batches effects etc.
 
-# > design
-# (Intercept) groupDSS groupDSS_Cur groupAOM_DSS groupAOM_DSS_Cur batch2
-# C1.dedup.bam            1        0            0            0                0      0
-# C26.dedup.bam           1        0            0            1                0      0
-# C29.dedup.bam           1        0            0            1                0      0
-# C2.dedup.bam            1        0            0            0                0      1
-# C42.dedup.bam           1        0            0            0                1      0
-# C46.dedup.bam           1        0            0            0                1      0
-# C65.dedup.bam           1        1            0            0                0      0
-# C70.dedup.bam           1        1            0            0                0      0
-# C75.dedup.bam           1        0            1            0                0      0
-# C79.dedup.bam           1        0            1            0                0      0
-# attr(,"assign")
-# [1] 0 1 1 1 1 2
-# attr(,"contrasts")
-# attr(,"contrasts")$group
-# [1] "contr.treatment"
-# 
-# attr(,"contrasts")$batch
-# [1] "contr.treatment"
-
+ 
 # Data filtering based on counts (cpm, counts per million reads)
 keep <- rowSums(cpm(y)>3) >= 2
 #or
@@ -70,16 +54,17 @@ fit <- glmFit(y, design)
 #Reference group is the group with the name in lowest alphabetic order. 
 #Can be reordered with "group <- relevel(group, "DSS")" etc
 # 
-### Method 1
+### Method 1. ONLY WORKS with "design <- model.matrix(~group+batch)". NO leading "0+"
+# seems
 lrt <- glmLRT(fit, coef = 2)
 tt02 <- topTags(lrt, n = nrow(y$counts), sort.by = "none")
 
-lrt <- glmLRT(fit, coef = 2:5) #to Compare groups 2 - 5 to the first group.
+lrt <- glmLRT(fit, coef = 3) #to Compare groups 2 - 5 to the first group.
 tt23 <- topTags(lrt, n = nrow(y$counts), sort.by = "none")
 
 #Save data with write.table etc
 
-# Method 2
+# Method 2 ONLY WORKS with "design <- model.matrix(~0+group+batch)". WITH leading "0+"
 ## or use contrast parameter to assign the TWO groups to be compared.
 # Either one of the two samples below works.
 
