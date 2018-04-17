@@ -6,7 +6,7 @@
 anno.konglab <- function(file){
   library(GenomicFeatures)
   library(ChIPseeker)
-  txdb <- makeTxDbFromGFF('genomes/Mus_musculus/UCSC/mm10/Annotation/Genes/genes.gtf', #This path is for running on the workstation in room 230. Change if necessary.
+  txdb <- makeTxDbFromGFF('~/genomes/Mus_musculus/UCSC/mm10/Annotation/Genes/genes.gtf', #This path is for running on the workstation in room 230. Change if necessary.
                           format='gtf',
                           organism='Mus musculus')
   peak <- readPeakFile(file)
@@ -17,12 +17,12 @@ anno.konglab <- function(file){
   peak2$feature <- peakAnno@anno$annotation
   peak2$distance <- peakAnno@anno$distanceToTSS
   peak2$gene <- peakAnno@anno$geneId
-  file_dir <- dirname(file)
-  file_base <- basename(file)
+  # file_dir <- dirname(file)
+  # file_base <- basename(file)
   
-  write.table(peak2, paste(file, "_anno.csv", sep = ""), sep='\t', quote=F, row.names=F)
-  
-  return()
+  write.table(peak2, paste(tools::file_path_sans_ext(file), "_anno.csv", sep = ""), sep='\t', quote=F, row.names=F)
+  q()
+  # return()
 }
 
 anno.konglab("~/Documents/results.csv")
