@@ -26,6 +26,7 @@ dds$Condition <- relevel(dds$Condition, ref="Control")
 
 # filter for genes with at least one count in at least two samples:
 dds1 <- dds[rowSums(counts(dds) >= 1) >= 2, ]
+# or dds1 <- dds[rowSums(counts(dds)) >= 10, ] Keep rows that have at least 10 reads total.
 #Run deseq
 dds_10 <- DESeq(dds1)
 # pairwise comparisons
