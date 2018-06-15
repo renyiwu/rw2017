@@ -1,6 +1,9 @@
 # ONLINE RESOURCES
 # Programming with R.  https://swcarpentry.github.io/r-novice-inflammation/
 # Data wrangling in R. http://clayford.github.io/dwir.html
+# r-crash-course. half-day introduction to the R language. https://bioinformatics-core-shared-training.github.io/r-crash-course/
+# RNAseq analysis in R. https://bioinformatics-core-shared-training.github.io/RNAseq-R/
+
 
 
 # 1, sort a data.frame based on columns. (https://stackoverflow.com/questions/1296646/how-to-sort-a-dataframe-by-columns)
