@@ -172,7 +172,32 @@ fwrite(pc3, "data/RNA_Tramp_to_pe_2018/new/IPA/contrast_pathways_tramp-wt.peitc-
 ###
 plotCounts(dds, gene = "Cdc7", intgroup = "group")
 
-##
+## extract pathway names and moleculars with loop and rbind. credit to Davit
+
+library("data.table")
+pc3
+class(pc3)
+# "data.frame"
+colnames(pc3)
+tmp <- strsplit(pc3$`Molecules.peitc-vs-tramp`, split = ",")
+class(tmp)
+# "list"
+length(tmp)
+# 26
+out <- list()
+for (i in 1:length(tmp)){
+        out[[i]] <- data.table(Pathway = rep(pc3$`Ingenuity Canonical Pathways`[i],
+                                             length(tmp[[i]])),
+                               gene = tmp[[i]])
+}
+out
+tt1 <- do.call("rbind", out)
+
+
+########## END rbind ####
+
+
+
 strsplit(pc3[1, 8], ",")
 tolower(strsplit(pc3[1, 8], ","))
 chartr("A-Z", "a-z", strsplit(pc3[1, 8], ","))
@@ -224,6 +249,10 @@ rld1 <- rlog(dds1, blind = F)
 head(assay(vsd1), 3)
 head(assay(rld1), 3)
 head(assay(dds1), 3)
+
+
+
+
 
 # Check effects of transformation on the variance
 ntd1 <- normTransform(dds1)

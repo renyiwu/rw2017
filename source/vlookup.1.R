@@ -16,6 +16,20 @@ out
 
 tt1 <- do.call("rbind", out)
 tt1
+
+
+pc3
+class(pc3)
+# "data.frame"
+colnames(pc3)
+tmp <- strsplit(pc3$`Molecules.peitc-vs-tramp`, split = ",")
+class(tmp)
+# "list"
+length(tmp)
+# 26
+out <- list()
+
+
 # dir.create(path="data/temp")
 # write.csv(tt1,
 #           file = "data/temp/8wk_aomdss_pathways.csv",
