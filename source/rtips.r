@@ -47,4 +47,10 @@ allStocksDT[, Day := weekdays(Date)]
 # Remove the column we created:
 allStocksDT[, Day := NULL]
 
+# add sequential numbers for groups in data.table:
+library(data.table)
+DT <- data.table(df)
 
+DT[, id := seq_len(.N), by = cat]
+DT[, id := rowid(cat)]
+# https://stackoverflow.com/questions/12925063/numbering-rows-within-groups-in-a-data-frame
