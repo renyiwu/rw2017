@@ -2,8 +2,9 @@
 
 
 
-
-library(biomaRt)
+# install.packages("BiocManager")
+# BiocManager::install("biomaRt")
+library("biomaRt")
 
 dt <- read.table("data/UVB_SKIN/UVB_CON/results/25wksUvbTum-25wksConSki.csv",
                  sep = "\t",
