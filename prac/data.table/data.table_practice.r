@@ -11,11 +11,11 @@ library("data.table")
 #### 1. INtroduction
 # https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
 
-input <- if (file.exists("flights14.csv")) {
-  "flights14.csv"
+input <- if (file.exists("prac/data.table/flights14.csv")) {
+  "prac/data.table/flights14.csv"
 } else {
   "https://raw.githubusercontent.com/Rdatatable/data.table/master/vignettes/flights14.csv"
-} 
+}
 flights <- fread(input)
 flights
 
@@ -107,7 +107,7 @@ DT = data.table(
 DT
 
 DT[, .(val = c(a,b)), by = ID]
-# 
+#
 # ID val
 # 1:  b   1
 # 2:  b   2
@@ -141,7 +141,7 @@ DT[, print(c(a,b)), by = ID]
 DT[, print(list(c(a,b))), by = ID]
 # [[1]]
 # [1] 1 2 3 7 8 9
-# 
+#
 #[[1]]
 # [1] 4 5 10 11
 # [[1]]
@@ -210,7 +210,7 @@ flights[.("JFK")]
 
 
 ## alternatively
-# flights[J("JFK")] (or) 
+# flights[J("JFK")] (or)
 # flights[list("JFK")]
 
 
@@ -237,10 +237,10 @@ key(flights)
 
 flights[.("JFK")] ## or in this case simply flights["JFK"], for convenience
 
-flights[.(unique(origin), "MIA")] 
+flights[.(unique(origin), "MIA")]
 # Here 3 elements were provided to the first key matching, but only 1 ("MIA") was provided for
 # the second key matching. Here "MIA" is automatically recycled to fit the length of unique(origin), which is 3.
-# Below works the same  
+# Below works the same
 # flights[.(unique(origin), rep("MIA",3))]
 
 
@@ -281,7 +281,7 @@ key(ans)
 flights[.("JFK", "MIA"), mult = "first"]
 #    year month day dep_delay arr_delay carrier origin dest air_time distance hour
 # 1: 2014     1   1         6         3      AA    JFK  MIA      157     1089    5
-# Good for selecting only one DMR for each gene. # methyl-seq 
+# Good for selecting only one DMR for each gene. # methyl-seq
 
 flights[.(c("LGA", "JFK", "EWR"), "XNA"), mult = "last"]
 
@@ -290,62 +290,62 @@ flights[.(c("LGA", "JFK", "EWR"), "XNA"), mult = "last", nomatch = NULL]
 
 # key by origin,dest columns
 flights[.("JFK", "MIA")]
- 
-  
+
+
   flights[origin == "JFK" & dest == "MIA"]
-  
+
   set.seed(2L)
   N = 9e7L
   DT = data.table(x = sample(letters, N, TRUE),
                   y = sample(1000L, N, TRUE),
                   val = runif(N))
   print(object.size(DT), units = "Mb")
-  
+
   key(DT)
 
   t1 <- system.time(ans1 <- DT[x == "g" & y == 877L])
   t1
-  
-  
+
+
   head(ans1)
-  
+
   dim(ans1)
-  
-  
-  
+
+
+
   setkeyv(DT, c("x", "y"))
   key(DT)
 
   t2 <- system.time(ans2 <- DT[.("g", 877L)])
-  t2 
-  
+  t2
+
   dim(ans2)
-  
+
   identical(ans1$val, ans2$val)
-  
-  
+
+
   ############## 4. Secondary indices and auto indexing #################################################  4
   # https://cran.r-project.org/web/packages/data.table/vignettes/datatable-secondary-indices-and-auto-indexing.html
-  
+
   flights <- fread("prac/data.table/flights14.csv")
-  
+
   head(flights)
   dim(flights)
-  
+
   names(attributes(flights))
-  
+
   setindex(flights, origin)
-  
+
   indices(flights)
-  
+
   setindex(flights, origin, dest)
   indices(flights)
-  
-  
-  
+
+
+
   # ############ 5. Efficient reshaping using data.tables   ############################################## 5
   # https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html
-  
+
   s1 <- "family_id age_mother dob_child1 dob_child2 dob_child3
 1         30 1998-11-26 2000-01-29         NA
 2         27 1996-06-22         NA         NA
@@ -353,7 +353,7 @@ flights[.("JFK", "MIA")]
 4         32 2004-10-10 2009-08-27 2012-07-21
 5         29 2000-12-05 2005-02-28         NA"
   DT <- fread(s1)
-DT  
+DT
 str(DT)
 
 
