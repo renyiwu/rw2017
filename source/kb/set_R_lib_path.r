@@ -5,8 +5,8 @@
 
 1. Create a new folder, eg. C:\users\abc\Rlib. Optionally, copy old packages to this folder.
 
-2. open any text editor and save "R_LIBS_USER=/home/abc/Rlib" in a file 
-named .Renviron under your HOME directory (usually C:/users/abc/Documents) 
+2. open any text editor and save "R_LIBS_USER=C:\users\abc\Rlib" in a file 
+named .Renviron under your HOME directory (usually C:\users\abc\Documents) 
 # the correct path can be obtained by R command path.expand("~")
 
 # or go to  Start --> Control Panel --> User Accounts --> Change my environmental variables, 
