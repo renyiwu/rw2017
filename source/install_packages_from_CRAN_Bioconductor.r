@@ -32,7 +32,7 @@ cran_packages <- c("data.table",
                    "BiocManager")
 
 if (length(setdiff(cran_packages, rownames(installed.packages()))) > 0) {
-  install.packages(setdiff(cran_packages, rownames(installed.packages()))) }
+  install.packages(setdiff(cran_packages, rownames(installed.packages())), update = T, ask = F) }
 #
 # # 2. Bioconductor packages----
 bio_packages <- c("DESeq2",
@@ -48,5 +48,5 @@ bio_packages <- c("DESeq2",
                   "BiocInstaller")
 
 if (length(setdiff(bio_packages, rownames(installed.packages()))) > 0) {
-  BiocManager::install(setdiff(bio_packages, rownames(installed.packages())), update = F)}
+  BiocManager::install(setdiff(bio_packages, rownames(installed.packages())), update = T, ask = F)}
 
