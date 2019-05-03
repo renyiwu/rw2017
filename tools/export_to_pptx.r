@@ -1,15 +1,14 @@
-# Funtions for importing (vectors) figures to Powerpoint slides. 
+# Funtions for importing (vectors) figures to Powerpoint slides.
 # R Wu. Oct 2018
+# revised May 2019
 
 # install.packages("officer")
 # install.packages("magrittr") #the package for function "%>%"
 # install.packages("rvg") # for function "ph_with_vg"
 # install.packages("ggplot2")
-# 
+#
 
-
-
-# function 1, for plots saved in variables. eg,
+# function 1, for plots saved in variables. eg by pheatmap,
 create_pptx <- function(plot, path, width = 6, height = 6, pointsize = 12){
   library(officer)
   library(magrittr)
@@ -19,7 +18,7 @@ create_pptx <- function(plot, path, width = 6, height = 6, pointsize = 12){
   } else {
     out <- read_pptx(path)
   }
-  
+
   out %>%
     add_slide(layout = "Title and Content", master = "Office Theme") %>%
     ph_with_vg(code = print(plot),
@@ -29,12 +28,16 @@ create_pptx <- function(plot, path, width = 6, height = 6, pointsize = 12){
                   pointsize = pointsize,
                offx = 0,
                offy = 0
-                  ) %>% 
+                  ) %>%
     print(target = path)
 }
 
 
-# Function 2
+
+#### below methods not recommended
+
+# Function 2. insert ggplot2 objects as bitmap
+
   create_pptx_gg <- function(plot, path, width = 6, height = 6, pointsize = 12){
     library(officer)
     library(magrittr)
@@ -45,7 +48,7 @@ create_pptx <- function(plot, path, width = 6, height = 6, pointsize = 12){
     } else {
       out <- read_pptx(path)
     }
-    
+
     out %>%
       add_slide(layout = "Title and Content", master = "Office Theme") %>%
       # ph_with_vg(code = print(plot),
@@ -55,14 +58,13 @@ create_pptx <- function(plot, path, width = 6, height = 6, pointsize = 12){
       #            pointsize = pointsize,
       #            offx = 0,
       #            offy = 0
-      # ) %>% 
-      ph_with_gg(value = plot) %>% ### Embeded a bitmap rater than a picture.
-      print(target = path)    
+      # ) %>%
+      ph_with_gg(value = plot) %>% ### Embeded a bitmap rater than a vector.
+      print(target = path)
   }
 
-# Dunction 3
-# create_pptx_code
-
+# Dunction 3. Manually put code within "{}".
+#
 read_pptx() %>%
   add_slide(layout = "Title and Content", master = "Office Theme") %>%
   ph_with_vg(code = {},
@@ -75,7 +77,8 @@ read_pptx() %>%
   ) %>%
   print(target = "Rplots.svg2.pptx")
 
-read_pptx("Rplots.svg2.pptx") %>%
+## Function 3 example #####
+read_pptx() %>%
   add_slide(layout = "Title and Content", master = "Office Theme") %>%
   ph_with_vg(code = {plot(dtp1$diff ~ dtp1$mu,
                           pch = ".",
@@ -100,7 +103,7 @@ read_pptx("Rplots.svg2.pptx") %>%
   print(target = "Rplots.svg2.pptx")
 
 
-
+#
 
 
 
