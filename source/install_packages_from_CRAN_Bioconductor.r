@@ -39,10 +39,11 @@ bio_packages <- c("DESeq2",
                   "DEGseq",
                   "GOSemSim",
                   "ChIPseeker",
-                  # "TxDb.Mmusculus.UCSC.mm10.knownGene",
+                  "rnaseqGene",
                   "DSS",
                   "units",
                   "fgsea",
+                  # "TxDb.Mmusculus.UCSC.mm10.knownGene",
                   # "org.Mm.eg.db",
                   # "dada2"
                   "BiocInstaller")
