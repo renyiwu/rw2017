@@ -1,0 +1,43 @@
+ # extract DMR sequence based on location
+# R Wu
+# 3-2-2020
+
+head DMR_RNA_dna-rna-match_genes_with_RPKM.tsv | cut -f1-5
+gene	seq	CpG	Wildtype.mu	TRAMP.mu
+4930593A02Rik	chr3_58711253_58711452	8	0.4416742	0.5910078
+Abca6	chr11_110284922_110285097	9	0.4765861	0.6098948
+Adgrb1	chr15_74564397_74564478	6	0.2381533	0.4844175
+Ank1	chr8_22918075_22918159	3	0.7045785	0.8765844
+Arhgap40	chr2_158510989_158511242	14	0.6672214	0.4118407
+Btbd11	chr10_85458478_85458705	5	0.3656481	0.549212
+C3	chr17_57228092_57228177	3	0.6794962	0.549212
+C530008M17Rik	chr5_76850523_76850553	3	0.8256463	0.9694727
+Cacna2d1	chr5_15985619_15985665	4	0.8398481	0.9537368
+
+
+$ extract exact the range
+ for i in $(tail +2 DMR_RNA_dna-rna-match_genes_with_RPKM.tsv | cut -f1-2 | sed -E 's/\t/_/' ); do 
+GENE=$(echo $i | cut -d_ -f1)
+echo $GENE
+LOC=$(echo $i | cut -d_ -f2-4 | sed -E 's/(.*?)_(.*?)_(.*?)/\1:\2-\3/')
+echo $LOC
+samtools faidx ~/genomes/Mus_musculus/UCSC/mm10/genome.fa $LOC > range/${GENE}.txt
+done
+
+
+
+# extract range plus flanking 
+for i in $(tail +2 DMR_RNA_dna-rna-match_genes_with_RPKM.tsv | cut -f1-2 | sed -E 's/\t/_/' ); do 
+GENE=$(echo $i | cut -d_ -f1)
+LOC=$(echo $i | cut -d_ -f2-4 | sed -E 's/(.*?)_(.*?)_(.*?)/\1:\2-\3/')
+CHR=$(echo $i | cut -d_ -f2)
+POS1=$(echo $i | cut -d_ -f3)
+FLANK=100
+POS1F=$(($POS1-$FLANK))
+POS2=$(echo $i | cut -d_ -f4)
+POS2F=$(($POS2+$FLANK))
+
+# samtools faidx ~/genomes/Mus_musculus/UCSC/mm10/genome.fa $LOC > range/${GENE}.txt
+samtools faidx ~/genomes/Mus_musculus/UCSC/mm10/genome.fa ${CHR}:${POS1F}-${POS2F} > range/${GENE}_flank_${FLANK}.txt
+
+done
