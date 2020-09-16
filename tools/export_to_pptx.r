@@ -32,6 +32,27 @@ create_pptx <- function(plot, path, width = 6, height = 6, pointsize = 12){
     print(target = path)
 }
 
+# Sept 2020
+
+create_pptx <- function(plot, path, width = 6, height = 6, pointsize = 12){
+  library("officer")
+  library("magrittr")
+  library("rvg")
+  if(!file.exists(path)) {
+    out <- read_pptx()
+  } else {
+    out <- read_pptx(path)
+  }
+  
+  out %>%
+    add_slide(layout = "Title and Content", master = "Office Theme") %>%
+    rvg:::ph_with.dml(dml(code = print(plot)),
+                      ph_location_fullsize()
+                      ) %>%
+    print(target = path)
+}
+
+
 
 
 #### below methods not recommended
