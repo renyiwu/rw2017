@@ -1,0 +1,8 @@
+Sample Name,Sample Label,trt,grouping
+RW01.dedup.bam,TPA1,TPA1,groupA
+RW02.dedup.bam,MITC,MITC,groupA
+RW03.dedup.bam,Control,Control,groupB
+RW04.dedup.bam,TPA1,TPA1,groupB
+RW05.dedup.bam,Corosolic acid,Corosolic acid,groupC
+RW06.dedup.bam,FX,FX,groupC
+RW07.dedup.bam,CDDo,CDDo,groupC
